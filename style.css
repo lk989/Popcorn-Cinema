@@ -1,80 +1,126 @@
+:root{
+    --purple: #772C66; 
+    --black: #3B3D49;
+    --gray: #726970;
+    --yellow: #DFB055;
+    --light-gray: #c0c0c0
+}
+
 body{
     margin: 0;
     padding: 0;
     font-family: 'Dongle', sans-serif;
 }
 
-#logo{
-    height: 60px;
-}
-
 nav a{
     text-decoration: none;
-    color: #726970;
-    font-size: 30px;
+    color: var(--gray);
+    font-size: 2rem;
 }
 
 nav a:hover{
-    color: #3B3D49;
-    transition: .3s;
+    display: inline-block;
+    color: var(--black);
+    transition: .2s;
     transform: scale(1.2);
+}
+
+nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 5vw;
+}
+
+#logo{
+    height: 60px;
 }
 
 header{
     display: flex;
     justify-content: right;
+    gap: 5vw;
+    height: 90px;
 }
-nav{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10vw;
-    margin: 0 auto;
-}
-
 
 #sign-in{
-    background-color: #772C66;
-    height: 80px;
-    width: 190px;
+    background-color: var(--purple);
+    height: 90px;
+    width: 210px;
     color: white;
     font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
 
+#sign-in p{
+    padding: 5px 0 0 20px;
+}
+
+.arc{
+    width: 30px;
+    border-radius: 0 100% 100% 0;
+    background-color: white;
+    height: 90px;
+}
+
+.Guardians-poster{
+    background-image: url(Guardians-background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+    top: 90px;
+}
+
+
+.background-opacity{
+    opacity: 0.8;
+    background-color: white;
+    height: 600px;
+    position: absolute;
+    width: 100%;
+    justify-content: center;
+   
+}
+
+.background-content{
+    height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 90vw;
+    margin: 0 5vw;
+}
+
+
 .Guardians-poster p{
-    position: relative;
     margin: 10px 0;
     font-size: 35px;
-    color: #726970;
+    color: var(--gray);
     line-height: 40px;
 }
 
-.Guardians-poster h1{
-    position: relative;
+.Guardians-poster .title{
     font-family: 'DM Serif Display', serif;
     font-size: 50px;
-    color: #3B3D49;
-    margin-top:60px;
-    margin-bottom: 0;
-}
-
-
-.Guardians-poster .book-now{
-    position: relative;
+    color: var(--black);
 }
 
 .Guardians-poster .movie-type{
-    position: relative;
     display: flex;
     justify-content: left;
     gap: 35px;
-    color: #DFB055;
+    color: var(--yellow);
     font-size: 28px;
     line-height: 25px;
 }
 
 .Guardians-poster .movie-type .type{
-    background-color: #ffffff;
+    background-color: white;
     padding: 5px 20px;
     border-radius: 50px;
     width: 70px;
@@ -82,53 +128,127 @@ nav{
 }
 
 
-
-.Guardians-poster{
-    background-image: url(Guardians-background.jpg);
-    height: 550px;
-    position: absolute;
-    width: 100%;
-    top: 80px;
-}
-
-.background-opacity{
-    opacity: 0.8;
-    background-color: #ffffff;
-    height: 550px;
-    position: absolute;
-    width: 100%;
-}
-
-.background-content{
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-
 .book-now {
   align-items: center;
-  background-color: #772C66;
+  background-color: var(--purple);
   border: 0;
   border-radius: 100px;
-  color: #ffffff;
+  color: white;
   cursor: pointer;
-  font-family: 'Dongle', sans-serif;
-  font-size: 28px;
-  justify-content: center;
+  font-family: inherit;
+  font-size: 1.8rem;
   line-height: 35px;
   width: 200px;
-  overflow: hidden;
-  padding: 0px;
-  padding-left: 20px;
-  padding-right: 20px;
-  text-align: center;
-  vertical-align: middle;
+  margin-bottom: 80px
 }
 
 .book-now:hover { 
-  background-color: #726970;
-  color: #ffffff;
+  background-color: var(--gray);
+  color: white;
   transform: scale(1.1);
   transition: .2s;
+}
+
+.search {
+    margin: 15px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    gap: 1vw;
+    color: var(--light-gray);
+}
+
+.search i{
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+.search-box{
+    resize: none;
+    width: 100%;
+    border: 1px solid #ededed;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1.7rem;
+    color: var(--gray);
+    padding-left: 1vw;
+}
+
+table{
+    border-spacing: 30px;
+
+}
+.img-posters{
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 10px;
+}
+
+.img-posters:hover{
+    transform: scale(1.1);
+    transition: .3s;
+    cursor: pointer;
+}
+
+.img-posters img{
+    width: 20vw;
+    max-height: 56vh;
+    min-height: 56vh;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+.img-posters h3{
+    line-height: 35px;
+    color: var(--black);
+    font-size: 2rem;
+    display: inline;
+}
+
+.img-posters p{
+    line-height: 25px;
+    color: var(--gray);
+    font-size: 1.2rem;
+    display: inline;
+}
+
+.poster-content{
+    padding: 10px;
+}
+
+table button{
+    border: none;
+    background-color: var(--purple);
+    color: white;
+    font-size: 1.6rem;
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.tabs{
+    padding: 20px 0 0 30px;
+}
+
+.tabs button{
+    background-color: white;
+    border: none;
+    font-family: inherit;
+    color: var(--light-gray);
+    font-size: 1.6rem;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.tabs button:hover,
+.tabs .active{ 
+    height: 40px;
+    margin-top: -6px;
+    top:-10px;
+    color: var(--purple);
+    transform: scale(1.2);
+    transition: .3s;
 }
 
