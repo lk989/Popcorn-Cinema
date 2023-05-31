@@ -1,0 +1,134 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Dongle', sans-serif;
+}
+
+#logo{
+    height: 60px;
+}
+
+nav a{
+    text-decoration: none;
+    color: #726970;
+    font-size: 30px;
+}
+
+nav a:hover{
+    color: #3B3D49;
+    transition: .3s;
+    transform: scale(1.2);
+}
+
+header{
+    display: flex;
+    justify-content: right;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    margin: 0 auto;
+}
+
+
+#sign-in{
+    background-color: #772C66;
+    height: 80px;
+    width: 190px;
+    color: white;
+    font-size: 30px;
+}
+
+.Guardians-poster p{
+    position: relative;
+    margin: 10px 0;
+    font-size: 35px;
+    color: #726970;
+    line-height: 40px;
+}
+
+.Guardians-poster h1{
+    position: relative;
+    font-family: 'DM Serif Display', serif;
+    font-size: 50px;
+    color: #3B3D49;
+    margin-top:60px;
+    margin-bottom: 0;
+}
+
+
+.Guardians-poster .book-now{
+    position: relative;
+}
+
+.Guardians-poster .movie-type{
+    position: relative;
+    display: flex;
+    justify-content: left;
+    gap: 35px;
+    color: #DFB055;
+    font-size: 28px;
+    line-height: 25px;
+}
+
+.Guardians-poster .movie-type .type{
+    background-color: #ffffff;
+    padding: 5px 20px;
+    border-radius: 50px;
+    width: 70px;
+    text-align: center;
+}
+
+
+
+.Guardians-poster{
+    background-image: url(Guardians-background.jpg);
+    height: 550px;
+    position: absolute;
+    width: 100%;
+    top: 80px;
+}
+
+.background-opacity{
+    opacity: 0.8;
+    background-color: #ffffff;
+    height: 550px;
+    position: absolute;
+    width: 100%;
+}
+
+.background-content{
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.book-now {
+  align-items: center;
+  background-color: #772C66;
+  border: 0;
+  border-radius: 100px;
+  color: #ffffff;
+  cursor: pointer;
+  font-family: 'Dongle', sans-serif;
+  font-size: 28px;
+  justify-content: center;
+  line-height: 35px;
+  width: 200px;
+  overflow: hidden;
+  padding: 0px;
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.book-now:hover { 
+  background-color: #726970;
+  color: #ffffff;
+  transform: scale(1.1);
+  transition: .2s;
+}
+
