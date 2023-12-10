@@ -39,7 +39,8 @@ nav ul{
     justify-content: center;
     align-items: center;
     list-style: none;
-    gap: 5vw;
+    justify-content: space-around;
+    width: 70vw;
 }
 
 #logo{
@@ -53,6 +54,12 @@ header{
     height: 90px;
 }
 
+.nav-bar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100vw;
+}
 #sign-in{
     background-color: var(--purple);
     height: 90px;
