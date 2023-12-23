@@ -20,16 +20,16 @@
 	<header>
 		<nav>
 			<ul>
-				<li><a href="coming-soon.html" class="wide nav-links">Coming soon</a></li>
-				<li><a href="offers.html" class="nav-links">Offers</a></li>
-				<li><a href="index.html"><img src="/images/logo.png" id="logo"></a></li>
-				<li><a href="showing-now.html" class="nav-links">Movies</a></li>
-				<li><a href="menu.html" class="nav-links">Menu</a></li>
+				<li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
+				<li><a href="offers.php" class="nav-links">Offers</a></li>
+				<li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
+				<li><a href="showing-now.php" class="nav-links">Movies</a></li>
+				<li><a href="menu.php" class="nav-links">Menu</a></li>
 			</ul>
 		</nav>
 		<div id="sign-in">
 			<div class="arc"></div>
-			<a href="login.html">
+			<a href="login.php">
 				<p>Login / Sign Up</p>
 			</a>
 		</div>
@@ -51,7 +51,7 @@
 
 		</tr>
 		<tr>
-			<td><img src="images/popcorn.jpg" width="80" height="100"><br>Popcorn</td>
+			<td><img src="/images/popcorn.jpg" width="80" height="100"><br>Popcorn</td>
 			<td>salt<br>Caramel<br>Cheese<br>Pizza</td>
 			<td>large<br>Regular<br>small</td>
 			<td>20<br>15<br>10</td>
@@ -60,7 +60,7 @@
 
 
 		<tr>
-			<td><img src="images/nachos.jpg" width="100" height="80"><br> Nachos</td>
+			<td><img src="/images/nachos.jpg" width="100" height="80"><br> Nachos</td>
 			<td>Normal<br>Spisy</td>
 			<td>One Size</td>
 			<td>20</td>
@@ -69,7 +69,7 @@
 
 
 		<tr>
-			<td><img src="images/hotdog.jpg" width="100" height="100"><br> Hot Dog</td>
+			<td><img src="/images/hotdog.jpg" width="100" height="100"><br> Hot Dog</td>
 			<td>Normal<br>Spisy</td>
 			<td>One Size</td>
 			<td>20</td>
@@ -77,7 +77,7 @@
 		</tr>
 
 		<tr>
-			<td><img src="images/cheese-fingers.jpg" width="100" height="100"><br>Cheese Fingers</td>
+			<td><img src="/images/cheese-fingers.jpg" width="100" height="100"><br>Cheese Fingers</td>
 			<td>Normal<br>Spisy</td>
 			<td>One Size</td>
 			<td>20</td>
@@ -85,7 +85,7 @@
 		</tr>
 
 		<tr>
-			<td><img src="images/chicken.jpg" width="100" height="100"><br>Chicken Popcorn</td>
+			<td><img src="/images/chicken.jpg" width="100" height="100"><br>Chicken Popcorn</td>
 			<td>Normal<br>Spisy</td>
 			<td>One Size</td>
 			<td>20</td>
@@ -93,7 +93,7 @@
 		</tr>
 
 		<tr>
-			<td><img src="images/onion-rings.jpg" width="100" height="100"><br>Onion Rings</td>
+			<td><img src="/images/onion-rings.jpg" width="100" height="100"><br>Onion Rings</td>
 			<td>With Sucse<br>WithOut</td>
 			<td>One Size</td>
 			<td>20</td>
@@ -108,7 +108,7 @@
 
 
 		<tr>
-			<td><img src="images/soda.jpg" width="100" height="100"><br>Soft Drink</td>
+			<td><img src="/images/soda.jpg" width="100" height="100"><br>Soft Drink</td>
 			<td>Pepsi<br>SevenUp<br>Shani<br>Mirinda</td>
 			<td>Large<br>Regular<br>small</td>
 			<td>10<br>7<br>5</td>
@@ -116,14 +116,14 @@
 		</tr>
 
 		<tr>
-			<td><img src="images/juice.jpg" width="100" height="80"><br>cold juice</td>
+			<td><img src="/images/juice.jpg" width="100" height="80"><br>cold juice</td>
 			<td>Orange<br>Lemon<br>Strawbarry</td>
 			<td>Large<br>Regular<br>small</td>
 			<td>10<br>7<br>5</td>
 
 		</tr>
 		<tr>
-			<td><img src="images/coffee.jpg" width="100" height="80"><br>Hot Drink</td>
+			<td><img src="/images/coffee.jpg" width="100" height="80"><br>Hot Drink</td>
 			<td>Americano<br>Espresso<br>Macchiato<br>Cappuccino</td>
 			<td>Large<br>Regular<br>small</td>
 			<td>18<br>15<br>12</td>
@@ -131,7 +131,7 @@
 		</tr>
 
 		<tr>
-			<td><img src="images/water.jpg" width="100" height="100"><br>Water</td>
+			<td><img src="/images/water.jpg" width="100" height="100"><br>Water</td>
 			<td></td>
 			<td></td>
 			<td>1</td>

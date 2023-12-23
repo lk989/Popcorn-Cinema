@@ -18,19 +18,25 @@
 </head>
 
 <body>
+    <?php
+        include 'db_connection.php';
+        $conn = OpenCon();
+        echo "Connected Successfully";
+        CloseCon($conn);
+    ?>
     <header>
         <nav>
             <ul>
-                <li><a href="coming-soon.html" class="wide nav-links">Coming soon</a></li>
-                <li><a href="offers.html" class="nav-links">Offers</a></li>
-                <li><a href="index.html"><img src="/images/logo.png" id="logo"></a></li>
-                <li><a href="showing-now.html" class="nav-links">Movies</a></li>
-                <li><a href="menu.html" class="nav-links">Menu</a></li>
+                <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
+                <li><a href="offers.php" class="nav-links">Offers</a></li>
+                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
+                <li><a href="showing-now.php" class="nav-links">Movies</a></li>
+                <li><a href="menu.php" class="nav-links">Menu</a></li>
             </ul>
         </nav>
         <div id="sign-in">
             <div class="arc"></div>
-            <a href="login.html">
+            <a href="login.php">
                 <p>Login / Sign Up</p>
             </a>
         </div>
@@ -109,7 +115,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="showing-now.html"><button><i class="fa-solid fa-chevron-right"></i></button></a>
+                        <a href="showing-now.php"><button><i class="fa-solid fa-chevron-right"></i></button></a>
                     </td>
                 </tr>
             </table>
@@ -164,7 +170,7 @@
                         </a>
                     </td>
                     <td>
-                        <a href="coming-soon.html"><button><i class="fa-solid fa-chevron-right"></i></button></a>
+                        <a href="coming-soon.php"><button><i class="fa-solid fa-chevron-right"></i></button></a>
                     </td>
                 </tr>
             </table>

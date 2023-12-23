@@ -17,16 +17,16 @@
     <header>
         <nav>
             <ul>
-                <li><a href="coming-soon.html" class="wide nav-links">Coming soon</a></li>
-                <li><a href="offers.html" class="nav-links">Offers</a></li>
-                <li><a href="index.html"><img src="/images/logo.png" id="logo"></a></li>
-                <li><a href="showing-now.html" class="nav-links">Movies</a></li>
-                <li><a href="menu.html" class="nav-links">Menu</a></li>
+                <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
+                <li><a href="offers.php" class="nav-links">Offers</a></li>
+                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
+                <li><a href="showing-now.php" class="nav-links">Movies</a></li>
+                <li><a href="menu.php" class="nav-links">Menu</a></li>
             </ul>
         </nav>
         <div id="sign-in">
             <div class="arc"></div>
-            <a href="login.html">
+            <a href="login.php">
                 <p>Login / Sign Up</p>
             </a>
         </div>
@@ -43,13 +43,13 @@
             <td><img src="https://cdn3.ticketnew.com/tn/offer/movie_pass/img/1050.jpg" width="350" height="200"></td>
         </tr>
         <tr align="center">
-            <td><br><a href="showing-now.html"><button id="my-button">Choose<br>The Movie</button></a></td>
-            <td><br><a href="showing-now.html"><button id="my-button">Choose<br>The Movie</button></a></td>
-            <td><br><a href="showing-now.html"><button id="my-button">Choose<br>The Movie</button></a></td>
+            <td><br><a href="showing-now.php"><button id="my-button">Choose<br>The Movie</button></a></td>
+            <td><br><a href="showing-now.php"><button id="my-button">Choose<br>The Movie</button></a></td>
+            <td><br><a href="showing-now.php"><button id="my-button">Choose<br>The Movie</button></a></td>
         </tr>
     </table>
 
-    <img src="images/offers.jpg" width="700" height="350" id="mondayOffers">
+    <img src="/images/offers.jpg" width="700" height="350" id="mondayOffers">
 
     <div id="offer-details">
         <h3 id="head1">MondayOffer</h3>
@@ -67,7 +67,7 @@
             <li>Cinema T&amp;Cs as well as Entry Rules are applied.</li>
         </ul>
     </div>
-    <td><br><a href="showing-now.html"><button id="my-button2">Choose The Movie</button></a></td>
+    <td><br><a href="showing-now.php"><button id="my-button2">Choose The Movie</button></a></td>
 
 
 </body>

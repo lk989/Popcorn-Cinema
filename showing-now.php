@@ -17,16 +17,16 @@
     <header>
         <nav>
             <ul>
-                <li><a href="coming-soon.html" class="wide nav-links">Coming soon</a></li>
-                <li><a href="offers.html" class="nav-links">Offers</a></li>
-                <li><a href="index.html"><img src="/images/logo.png" id="logo"></a></li>
-                <li><a href="showing-now.html" class="nav-links">Movies</a></li>
-                <li><a href="menu.html" class="nav-links">Menu</a></li>
+                <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
+                <li><a href="offers.php" class="nav-links">Offers</a></li>
+                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
+                <li><a href="showing-now.php" class="nav-links">Movies</a></li>
+                <li><a href="menu.php" class="nav-links">Menu</a></li>
             </ul>
         </nav>
         <div id="sign-in">
             <div class="arc"></div>
-            <a href="login.html">
+            <a href="login.php">
                 <p>Login / Sign Up</p>
             </a>
         </div>
@@ -37,7 +37,7 @@
     <table id="Movies">
         <tr>
             <td><a href="mario.html"><img
-                        src="https://etbilarabi.com/sites/default/files/inline-images/0BE55DEF-CCC7-49EE-A52F-51BC31125588.jpeg"
+                        src="https://etbilarabi.com/sites/default/files/inline-/images/0BE55DEF-CCC7-49EE-A52F-51BC31125588.jpeg"
                         width="200" height="300"><br>The Super Mario Bros<br>Adventure/Fantasy</a></td>
             <td><a href="mermaid.html"><img
                         src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1682905252634-1183e400-822b-468f-8003-dee7995ffbda.png&w=3840&q=75"
