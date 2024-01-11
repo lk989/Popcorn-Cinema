@@ -34,3 +34,43 @@
             </a>
         </div>
     </header>
+
+
+    
+    <footer class="subscribe-footer">
+        <i>Subscribe to recieve our weekly offers!</i>
+        <form class="subscription">
+            <section>
+                <input type="email" class="email" placeholder="Enter your email address">
+            </section>
+            <button onclick="popAlert()">Subscribe</button>
+        </form>
+    </footer>
+    <script>
+        function openTap(e, tabName) {
+            var i;
+            var x = document.getElementsByClassName("open");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";  
+            }
+            document.getElementById(tabName).style.display = "block";  
+            toggleActive(e, tabName);
+        }
+
+        function toggleActive(e, tabName){
+            e.classList.add('active');
+            if(tabName == 'comingSoon'){
+                e.previousElementSibling.classList.remove('active');
+            }
+            else{
+                e.nextElementSibling.classList.remove('active');
+            }
+        }
+
+        function popAlert() {
+            alert("You are now subscribed to Popcorn weekly offers!");
+        }
+    </script>
+</body>
+
+</html>
