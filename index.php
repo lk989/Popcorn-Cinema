@@ -21,7 +21,7 @@
         include 'fetch_query.php';
         $movies = fetch_all('movie');
         $latest_movie = fetch_all('movie', true, null,'1');
-        $latest_showing_now = fetch_all('movie', true, 'showing_now = "1"', '2');
+        $latest_showing_now = fetch_all('movie', true, 'showing_now = "1"', '4');
         $latest_coming_soon = fetch_all('movie', true, 'showing_now = "0"', '4');
     ?>
     <header>
@@ -109,109 +109,41 @@
                     <?php
                         }
                     ?>
-                    <!-- <td>
-                        <a href="mario.html">
-                            <article class="img-posters">
-                                <img
-                                    src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683021968077-4a3713d5-eca8-4c32-8491-a11c97175995.jpg&w=3840&q=75">
-                                <article class="poster-content">
-                                    <h3>THE SUPRE MARIO</h3><br>
-                                    <p>English<br>Adventure . Animation</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="mermaid.html">
-                            <article class="img-posters">
-                                <img
-                                    src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1682905252634-1183e400-822b-468f-8003-dee7995ffbda.png&w=3840&q=75">
-                                <article class="poster-content">
-                                    <h3>THE LITTLE MERMAID</h3><br>
-                                    <p>English<br>Adventure . Fantasy</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="elshar.html">
-                            <article class="img-posters">
-                                <img
-                                    src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683021991249-6adcdb94-deb2-44db-b987-a0beda8387ed.jpg&w=3840&q=75">
-                                <article class="poster-content">
-                                    <h3>BA3ED EL SHAR (Arabic)</h3><br>
-                                    <p>Arabic<br>Comedy</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="fast.html">
-                            <article class="img-posters">
-                                <img
-                                    src="https://m.media-amazon.com/images/M/MV5BNzZmOTU1ZTEtYzVhNi00NzQxLWI5ZjAtNWNhNjEwY2E3YmZjXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg">
-                                <article class="poster-content">
-                                    <h3>FAST X</h3><br>
-                                    <p>English<br>Action . Crime</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
                     <td>
                         <a href="showing-now.php"><button><i class="fa-solid fa-chevron-right"></i></button></a>
-                    </td> -->
+                    </td>
                 </tr>
             </table>
             <table id="comingSoon" class="open" style="display:none">
                 <tr>
-                    <td>
-                        <a href="spider-man.html">
-                            <article id="spider-man" class="img-posters">
-                                <img
-                                    src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683043451091-cd0d329c-3902-4f28-9fa8-820dafdf974a.jpg&w=3840&q=75">
-                                <article class="poster-content">
-                                    <h3>SPIDER-MAN</h3><br>
-                                    <p>English<br>Adventure . Action</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="barbie.html">
-                            <article class="img-posters">
-                                <img
-                                    src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1685356390900-c0f72746-eb43-4def-8aa3-513981ae3b40.jpg&w=3840&q=75">
-                                <article class="poster-content">
-                                    <h3>BARBIE</h3><br>
-                                    <p>English<br>Family</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="wish.html">
-                            <article class="img-posters">
-                                <img
-                                    src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683544836865-774db6d1-83bf-432f-a924-06493e4e54f3.jpg&w=3840&q=75">
-                                <article class="poster-content">
-                                    <h3>WISH</h3><br>
-                                    <p>English<br>Comedy . Adventure</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
-                    <td>
-                        <a href="hunger.html">
-                            <article class="img-posters">
-                                <img
-                                    src="https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1684161737451-35183d0a-105f-4cd2-af3a-49b8a206dc01.jpg&w=3840&q=75">
-                                <article class="poster-content">
-                                    <h3>THE HUNGER GAMES</h3><br>
-                                    <p>English<br>Action . Adventure</p>
-                                </article>
-                            </article>
-                        </a>
-                    </td>
+                    <?php 
+                        while($coming_soon=$latest_coming_soon->fetch_assoc())
+                        {
+                    ?>
+                            <td>
+                                <a href="mario.html">
+                                    <article class="img-posters">
+                                        <img
+                                            src="<?php echo $coming_soon['poster'];?>">
+                                        <article class="poster-content">
+                                            <h3><?php echo $coming_soon['name'];?></h3><br>
+                                            <p><?php echo $coming_soon['language'];?></p><br>
+                                            <p>
+                                            <?php 
+                                                $genres = fetch_all('genre', false, 'id in (SELECT genre_id FROM movie_genres WHERE movie_id = ' . $coming_soon['id'] . ')', null);
+                                                while($genre=$genres->fetch_assoc())
+                                                {
+                                                    echo $genre['name'] . ' . ';
+                                                }
+                                            ?>
+                                            </p>
+                                        </article>
+                                    </article>
+                                </a>
+                            </td>
+                    <?php
+                        }
+                    ?>
                     <td>
                         <a href="coming-soon.php"><button><i class="fa-solid fa-chevron-right"></i></button></a>
                     </td>
