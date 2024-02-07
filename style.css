@@ -832,13 +832,13 @@ caption{
 
 /* __________________________________________________________COrder container */
 
-.cont{
+/* .cont{
     position:absolute;
     top: 40%;
     left: 50%;
     bottom: 10%;
     transform: translate(-50%,-40%);
-    height: 815px;
+    height: 650px;
     width: 750px;
     display: flex;
     background: #772C66; 
@@ -852,7 +852,7 @@ caption{
   position:relative;
   top:0;
   left: 0;
-    height: 815px;
+    height: 650px;
     width: 450px;
     display: flex;
     background-color: #58204b;
@@ -873,12 +873,12 @@ caption{
    background-color: #772C66;
   } */
   
-  /*  */
   
+/*   
   .fill {
     background: #772C66; 
     margin: 0 0 0 100px;
-    /* width:600px; */
+    width:600px;
   }
   
   .fill h1{
@@ -892,7 +892,7 @@ caption{
   color: rgb(230, 230, 230);
   padding: 10px;
   margin: 50px 30px 50px 0;
-  /* background: #772C66;  */
+  background: #772C66; 
   }
   
   .fill input{
@@ -913,7 +913,7 @@ caption{
   font-weight: 500;
   font-size: 15px;
   color: rgb(211, 211, 211);
-  /* background-color: #58204b; */
+  background-color: #58204b;
   }
   
   .fill button{
@@ -926,6 +926,131 @@ caption{
     width: 100px;
     margin-top: 120px;
     margin-left: 250px;
+  }  */
+  
+  /* ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++Bill */
+
+    /* the content container */
+    .content-cont{
+      width: 85%;
+      min-height: 80%;
+      /* height: 100%; */
+     /* padding: 20px; */
+      }
+     .container {
+      display: flex;
+      justify-content:center;
+      align-items: center;
+      margin-left: 200px;
+
+      /* min-height: 300px; */
+      /* width: 100%;
+      min-height: 100%; */
+      opacity: 0.9;
+  
+      
+      /* border-radius: 90%; */
+    }
+    /* the pink container */
+  #rcorners1 {
+   
+    background: #772C66; 
+    /* background: #faf5f2; */
+    border-radius: 40px;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+    padding: 30px;
+    margin-top: 60px;
+    width: 700px;
+    height: 600px;
+        /* align-items: center; */
+      /* display: flex;
+        justify-content: flex-end; */
   }
+  /* for image */
   
+  .text-block2 img{
+    position: absolute;
+    top: 130px;
+    left: 250px;
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+
+    background: #772C66; 
+   }
   
+      .text-block {
+        position: absolute;
+        top: 120px;
+        left: 520px;
+        background: #772C66; 
+        /* background-size: cover; */
+      }
+      #rcorners1 .text-block .text-block2{
+        padding-left: 50px;
+        padding-right: 20px;
+      }
+      /* <!-- ⁙⁙⁙‥※••• --> */
+      .wel-content{
+        float: center;
+        width: auto;
+        border-radius: 10px;
+        /* background-size: cover; */
+        background: #772C66; 
+      }
+  
+      table{
+      border: 1px ;
+      border-collapse: collapse;
+      /* background:#f8eae4 */
+  
+      /* width: 100; */
+      /* background-color: aqua; */
+     }
+     td{
+      font-family: 'Dongle', sans-serif;
+      font-weight: 400;
+      color: rgb(255, 255, 255);
+      text-align: left;
+      /* padding: auto; */
+      /* between the phrases */
+      background: #772C66; 
+    }
+     /* h1 {
+      margin-top: -10px;
+      font-size:40px; 
+      font-weight: bold;
+      padding-bottom: 1px;
+      font-family: 'Dongle', sans-serif;
+      background: #772C66; 
+       color: #DFB055 ;
+      transition: all 0.2s ease 0s;
+    } */
+  
+    /* td h1:hover{
+      background-color: rgba(163,178,187,1);
+      transition: all 0.7s ease 0s; 
+      text-shadow: 0 0 40px #ffffffb0,
+      0 0 40px #ffffffb0,
+      0 0 40px #ffffffb0;
+       transition: all 0.9s; */
+      /* i can't do the same as the text */
+    /* } */
+    
+     p{
+      /* font-size: 40px;  */
+      color: #ffffff;
+      font-weight: bold;
+      background: #772C66; 
+      transition: all 0.5s ease 0s;
+     }
+     p:hover{
+      /* background-color: rgba(163,178,187,1);
+      transition: all 0.7s ease 0s;  */
+      text-shadow: 0 0 50px #ffffffd8 ,
+      0 0 50px #ffffffd8,
+      0 0 50px #ffffffd8 ;
+      /* color: #b5b5a7; */
+       transition: all 0.9s;
+      /* i can't do the same as the text */
+    } 
