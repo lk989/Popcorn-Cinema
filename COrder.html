@@ -22,7 +22,7 @@
             <ul>
                 <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
                 <li><a href="offers.php" class="nav-links">Offers</a></li>
-                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
+                <li><a href="index.php"><img src="logo.png" id="logo"></a></li>
                 <li><a href="showing-now.php" class="nav-links">Movies</a></li>
                 <li><a href="menu.php" class="nav-links">Menu</a></li>
             </ul>
@@ -34,43 +34,54 @@
             </a>
         </div>
     </header>
+    <br><br>
 
+    <!-- <img  width="700" height="350" id="mondayOffers"> -->
 
-    
-    <footer class="subscribe-footer">
-        <i>Subscribe to recieve our weekly offers!</i>
-        <form class="subscription">
-            <section>
-                <input type="email" class="email" placeholder="Enter your email address">
-            </section>
-            <button onclick="popAlert()">Subscribe</button>
-        </form>
-    </footer>
-    <script>
-        function openTap(e, tabName) {
-            var i;
-            var x = document.getElementsByClassName("open");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";  
-            }
-            document.getElementById(tabName).style.display = "block";  
-            toggleActive(e, tabName);
-        }
+<!-- container -->
+<div class="cont">
+    <div class="cont2">	
+          
+            <form class="fill" action="#" method="post">
+                    <h1 class="send"> Your Details:<br>_____________________________________________</h1> 
+                    <br>
+                    <label class="fname" for="fname"> First Name:  </label> <input type="text" name="fName" id="fname" placeholder="First name" required size="20" >
+                    <br>
+                    <br>
+                    <label class="lname" for="lname"> Last Name:  </label> <input type="text" name="lName" id="lname" placeholder="Last name" required  size="20" >
+                    <br>
+                    <br>
+                    <label class="email" for="mail"> Email:  </label> <input type="email" name="mail" id="mail" placeholder="yourname@gmail.com" required  size="20" >
+                    <br>
+                    <br>
+                    <label class="phone" for="phone"> Phone number:  </label> <input type="number" name="phone" id="phone" placeholder="05xxxxxxxx" required  size="20" maxlength="13">
+                    <br>
+                    <br>
+                    
+                    <h1 class="send"> Movie Informations:<br>_____________________________________________</h1> 
+                    <br>
+                    <label class="number" for="NumTick"> 0× standard ticket </label> <input type="email" name="mail" id="mail" placeholder="yourname@gmail.com" required  size="20" >
+                    <br><br>
+                    <label class="number" for="fee"> Booking Fee </label> <input type="text" name="lName" id="lname" placeholder="Last name" required  size="20" >
+                    <br><br>
+                    <label class="number" for="Amount"> Total Amount </label> <input type="text" name="lName" id="lname" placeholder="Last name" required  size="20" >
+                    <br><br>
+                    <h1 class="send" > VAT Informations:<br>_____________________________________________</h1> 
 
-        function toggleActive(e, tabName){
-            e.classList.add('active');
-            if(tabName == 'comingSoon'){
-                e.previousElementSibling.classList.remove('active');
-            }
-            else{
-                e.nextElementSibling.classList.remove('active');
-            }
-        }
+                    <h1 class="send" style="font-size: 22px;"> Your Payment Informations:</h1> 
+                    <label class="number" for="CardNum"> Card Number: </label> <input type="text" name="fName" id="fname" placeholder="First name" required size="20" >
+                    
+                    <button id="submit" type="submit" onclick='alert("If you fill out the form then the Message sent successfully!")'>Confirm Details</button>
+                    <br><br><br><br><br>
+                    
+                </script>
 
-        function popAlert() {
-            alert("You are now subscribed to Popcorn weekly offers!");
-        }
-    </script>
-</body>
+            </form><br><br>
+
+    </div>
+
+</div>
+
+</body> 
 
 </html>
