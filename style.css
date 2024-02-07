@@ -948,7 +948,7 @@ caption{
       /* height: 100%; */
      /* padding: 20px; */
       }
-     .container {
+     .container2 {
       display: flex;
       justify-content:center;
       align-items: center;
@@ -981,9 +981,9 @@ caption{
   
   .text-block2 img{
     position: absolute;
-    top: 130px;
-    left: 250px;
-    width: 150px;
+    top: 240px;
+    left: 430px;
+    width: 170px;
     height: auto;
     border-radius: 10px;
 
@@ -992,22 +992,23 @@ caption{
   
       .text-block {
         position: absolute;
-        top: 120px;
-        left: 520px;
-        background: #772C66; 
+        top: 250px;
+        left: 700px;
+        /* background: #772C66;  */
         /* background-size: cover; */
       }
       #rcorners1 .text-block .text-block2{
         padding-left: 50px;
         padding-right: 20px;
       }
+
       /* <!-- ⁙⁙⁙‥※••• --> */
       .wel-content{
         float: center;
         width: auto;
         border-radius: 10px;
         /* background-size: cover; */
-        background: #772C66; 
+        /* background: #772C66;  */
       }
   
       table{
@@ -1048,14 +1049,14 @@ caption{
       /* i can't do the same as the text */
     /* } */
     
-     p{
+    .bill{
       /* font-size: 40px;  */
       color: #ffffff;
       font-weight: bold;
       background: #772C66; 
       transition: all 0.5s ease 0s;
      }
-     p:hover{
+     .bill:hover{
       /* background-color: rgba(163,178,187,1);
       transition: all 0.7s ease 0s;  */
       text-shadow: 0 0 50px #ffffffd8 ,
