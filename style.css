@@ -830,3 +830,102 @@ caption{
      border-radius: 5px
    }
 
+/* __________________________________________________________COrder container */
+
+.cont{
+    position:absolute;
+    top: 40%;
+    left: 50%;
+    bottom: 10%;
+    transform: translate(-50%,-40%);
+    height: 815px;
+    width: 750px;
+    display: flex;
+    background: #772C66; 
+    border-radius: 30px;
+    margin-top: 200px;
+    margin-bottom: 90px;
+    opacity:0.89;
+  }
+  
+  .cont2{
+  position:relative;
+  top:0;
+  left: 0;
+    height: 815px;
+    width: 450px;
+    display: flex;
+    background-color: #58204b;
+    border-radius: 30px;
+    }
+  
+  .cont2 h1{
+  font-family: "Montagu Slab" , sans-serif;
+  font-weight: 500;
+  font-size: 25px;
+  color: rgb(228, 228, 228);
+  background: no-repeat;
+  padding: 10px;
+  text-align: left;
+  }
+  
+  /* .cont2 em{
+   background-color: #772C66;
+  } */
+  
+  /*  */
+  
+  .fill {
+    background: #772C66; 
+    margin: 0 0 0 100px;
+    /* width:600px; */
+  }
+  
+  .fill h1{
+    width:600px;
+  }
+  
+  .fill label{
+  font-family: "Montagu Slab" , sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgb(230, 230, 230);
+  padding: 10px;
+  margin: 50px 30px 50px 0;
+  /* background: #772C66;  */
+  }
+  
+  .fill input{
+  font-family: 'Comic Neue';
+  font-weight: 14px;
+  font-size: 13px;
+  align-items: left;
+  background: #f4f0f0;
+  border: none;
+    outline: none;
+    padding: 10px 0 5 0;
+    border-radius: 3px;
+    opacity:0.89;
+  }
+  
+  .fill textarea{
+  font-family: "Montagu Slab" , sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: rgb(211, 211, 211);
+  /* background-color: #58204b; */
+  }
+  
+  .fill button{
+    font-family: "Montagu Slab" , sans-serif;
+    border: none;
+    background: #DFB055;
+    color: #ededed;
+    border-radius: 15px;
+    height: 40px;
+    width: 100px;
+    margin-top: 120px;
+    margin-left: 250px;
+  }
+  
+  
