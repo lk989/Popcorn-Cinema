@@ -8,4 +8,10 @@
         CloseCon($conn);
         return $result;
     }
+    function fetch($sql){
+        $conn = OpenCon();
+        $result = $conn->query($sql);
+        CloseCon($conn);
+        return $result;
+    }
 ?>

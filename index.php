@@ -86,7 +86,7 @@
                         {
                     ?>
                             <td>
-                                <a href="mario.html">
+                                <a href="movie_details.php?id=<?php echo $showing_now['id'];?>">
                                     <article class="img-posters">
                                         <img
                                             src="<?php echo $showing_now['poster'];?>">
@@ -121,7 +121,7 @@
                         {
                     ?>
                             <td>
-                                <a href="mario.html">
+                                <a href="movie_details.php?id=<?php echo $coming_soon['id'];?>">
                                     <article class="img-posters">
                                         <img
                                             src="<?php echo $coming_soon['poster'];?>">
