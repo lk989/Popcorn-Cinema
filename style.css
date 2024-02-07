@@ -1007,19 +1007,21 @@ caption{
         float: center;
         width: auto;
         border-radius: 10px;
+        border: 1px ;
+        border-collapse: collapse;
         /* background-size: cover; */
         /* background: #772C66;  */
       }
   
-      table{
-      border: 1px ;
-      border-collapse: collapse;
+      /* table{ */
+
       /* background:#f8eae4 */
   
       /* width: 100; */
       /* background-color: aqua; */
-     }
-     td{
+     /* } */
+
+     .bil{
       font-family: 'Dongle', sans-serif;
       font-weight: 400;
       color: rgb(255, 255, 255);
@@ -1028,6 +1030,7 @@ caption{
       /* between the phrases */
       background: #772C66; 
     }
+    
      /* h1 {
       margin-top: -10px;
       font-size:40px; 
