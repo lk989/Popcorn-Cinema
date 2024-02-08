@@ -1,7 +1,8 @@
 
 <?php
+require_once 'includes/config_session.inc.php';
+require_once 'includes/signup_view.inc.php';
 
-session_start();
 ?>
 
 <!DOCTYPE HTML>
@@ -51,23 +52,37 @@ session_start();
 
 
 
-  <form>
+  <form action="includes/signup.inc.php" method="post">
     <h3>Enter your informatiom</h3>
 
-    <label for="firstName"> Name:</label>
-    <input type="text" id="firstName" required autocomplete="off" />
+    <label for="name"> username:</label>
+    <input type="text" id="name"  name ="username" required autocomplete="off" />
 
+    <label for="password"> Password:</label>
+    <input type="password" id="password" required  name="pwd" autocomplete="off" />
 
+    <label for="email"> Email </label>
+    <input type="text" id="email" required name="email" autocomplete="off" />
 
-    <label for="phone"> Password:</label>
-    <input type="tel" id="phone" required autocomplete="off" />
+    <label for="phone"> phone </label>
+    <input type="text" id="phone" required name="phone" autocomplete="off" />
 
-    <a href="index.php"><button class="book-now" role="button" onclick="registration()"> Log in</button></a>
+  <label for="birth"> Birthday </label>
+  <input type="date" id="birth"  name="birthdate">
+
+<button class="book-now">sign up</button>
+   <!-- <a href="index.php"><button class="book-now" role="button" sign up</button></a>-->
     <!--<button class="book-now" role="button">book now!</button>-->
     <!-- <a href="login.php"> هل لديك حساب ؟ </a> -->
 
   </form>
+<?php
 
+
+check_signup_errors();
+
+
+?>
 </body>
 
 </html>
