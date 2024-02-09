@@ -2,7 +2,6 @@
 require_once 'includes/config_session.inc.php';
 require_once 'includes/login.inc.php';
 require_once 'includes/login_view.inc.php';
-
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -68,6 +67,12 @@ require_once 'includes/login_view.inc.php';
   <?php
 check_login_error();
 ?>
+
+<form action ="includes/logout.inc.php" method="post">
+
+
+
+</form>
 </body>
 
 </html>

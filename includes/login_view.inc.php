@@ -1,6 +1,18 @@
 <?php
 
 
+
+function output_username(){
+
+    if(isset($_SESSION['user_id'])){
+        echo "your are logged in as ".$_SESSION['user_username'];
+
+    }
+
+else{
+    echo 'you are not logged in';
+}}
+
 function check_login_error(){
 
 if(isset($_SESSION["errors_login"])){
