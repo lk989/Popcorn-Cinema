@@ -46,18 +46,21 @@ die();
 }
 
 
-header("Location: ../signup.php?signup=success");#رجعه
-$pdo=null;
-$stmt=null;
-
-
-
-die ();  #يوقفه من التشغيل 
-
 $newSessionId = session_create_id();
 $_sessionId = $newSessionId . "_" .$result["id"];
 session_id($_sessionId);
-}catch (PDOException $e){
+
+$_SESSION["user_id"]=$result["id"];
+$_SESSION["user_username"]= htmlspecialchars($result["username"]);
+$_SESSION["last_regeneration"]=time();
+
+header("Location: ../login.php?loging=success");#رجعه
+
+$pdo=null;
+$stmt=null;
+die();
+}
+catch (PDOException $e){
 
 die("Query failed: ".$e->getMessage());
 

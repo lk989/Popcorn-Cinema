@@ -1,4 +1,9 @@
+<?php
+require_once 'includes/config_session.inc.php';
+require_once 'includes/login.inc.php';
+require_once 'includes/login_view.inc.php';
 
+?>
 <!DOCTYPE HTML>
 <html>
 
@@ -60,7 +65,9 @@
     <!-- <a href="login.php"> هل لديك حساب ؟ </a> -->
 
   </form>
-
+  <?php
+check_login_error();
+?>
 </body>
 
 </html>
