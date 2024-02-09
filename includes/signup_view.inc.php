@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_type=1);
-
 function check_signup_errors(){
 
 if(isset($_SESSION['errors_signup'])){

@@ -1,9 +1,4 @@
 
-<?php
-
-session_start();
-?>
-
 <!DOCTYPE HTML>
 <html>
 
@@ -51,16 +46,14 @@ session_start();
 
 
 
-  <form>
+  <form  action="login.inc.php" method="post">
     <h3>Enter your informatiom</h3>
 
-    <label for="firstName"> Name:</label>
-    <input type="text" id="firstName" required autocomplete="off" />
+    <label for="name"> username:</label>
+    <input type="text" id="name"  name ="username" required autocomplete="off" />
 
-
-
-    <label for="phone"> Password:</label>
-    <input type="tel" id="phone" required autocomplete="off" />
+    <label for="password"> Password:</label>
+    <input type="password" id="password" required  name="pwd" autocomplete="off" />
 
     <a href="index.php"><button class="book-now" role="button" onclick="registration()"> Log in</button></a>
     <!--<button class="book-now" role="button">book now!</button>-->

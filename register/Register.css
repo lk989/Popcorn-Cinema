@@ -117,13 +117,13 @@ form {
   background-color: white;
   position: absolute;
   transform: translate(-50%, -50%);
-  top: 66%;
+  top: 100%;
   left: 50%;
   border-radius: 15px;
   backdrop-filter: blur(10px);
   border: 2px #772C66 solid;
   box-shadow: 0 0 12px #772C66;
- padding: 50px 35px;
+ padding: 80px 35px;
 }
 
 form * {
