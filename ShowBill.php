@@ -73,14 +73,14 @@
                     <tr>
                         <td class="bil" ><p class="bill" style="font-size: 30px; ">Date:</p></td>
                          <!-- the date of the movie will be retrieved from the DB -->
-                        <td class="bil" ><p class="bill" style="font-size: 30px; "><?php echo $current_movie['name'];?></p></td>
+                        <td class="bil" ><p class="bill" style="font-size: 30px; "></p></td>
                     </tr>
 
                      <!-- row 3 -->
                      <tr>
                         <td class="bil"><p class="bill" style="font-size: 30px; ">Time:</p></td>
                          <!-- the time of the movie will be retrieved from the DB -->
-                        <td class="bil"><p class="bill" style="font-size: 30px; "><?php echo $current_movie['name'];?> </p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; "> </p></td>
                      </tr>
 
                      <!-- row 4 -->
