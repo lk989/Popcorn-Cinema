@@ -32,7 +32,7 @@ require_once 'config_session.inc.php';
     $errors["loging_incorrect"]="Incorrect login info!";
  }
 
- if(!is_username_wrong($result)&&is_password_wrong( $pwd,$result["pwd"])){
+ if(!is_username_wrong($result)&& is_password_wrong( $pwd,$result["pwd"])){
     $errors["loging_incorrect"]="Incorrect login info!";
 
  }

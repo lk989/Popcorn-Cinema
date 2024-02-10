@@ -71,9 +71,6 @@ require_once 'includes/signup_view.inc.php';
   <input type="date" id="birth"  name="birthdate">
 
 <button class="book-now">sign up</button>
-   <!-- <a href="index.php"><button class="book-now" role="button" sign up</button></a>-->
-    <!--<button class="book-now" role="button">book now!</button>-->
-    <!-- <a href="login.php"> هل لديك حساب ؟ </a> -->
 
   </form>
 <?php

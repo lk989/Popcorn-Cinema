@@ -50,7 +50,7 @@ require_once 'includes/login_view.inc.php';
 
 
 
-  <form  action="login.inc.php" method="post">
+  <form  action="includes/login.inc.php" method="post">
     <h3>Enter your informatiom</h3>
 
     <label for="name"> username:</label>
@@ -58,21 +58,15 @@ require_once 'includes/login_view.inc.php';
 
     <label for="password"> Password:</label>
     <input type="password" id="password" required  name="pwd" autocomplete="off" />
-
-    <a href="index.php"><button class="book-now" role="button" onclick="registration()"> Log in</button></a>
-    <!--<button class="book-now" role="button">book now!</button>-->
-    <!-- <a href="login.php"> هل لديك حساب ؟ </a> -->
+    
+    <button class="book-now">sign up</button>
 
   </form>
+  
   <?php
 check_login_error();
 ?>
 
-<form action ="includes/logout.inc.php" method="post">
-
-
-
-</form>
 </body>
 
 </html>
