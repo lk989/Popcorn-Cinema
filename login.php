@@ -3,7 +3,6 @@
 
 <head>
     <link rel="stylesheet" href="register/Register.css">
-    <!-- <link rel="stylesheet" href="CssStyleFile\Styleindex.css"> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap" rel="stylesheet">
@@ -16,6 +15,7 @@
 </head>
 
 <body>
+
     <?php
       include 'header.php';
     ?>
@@ -25,7 +25,7 @@
     <?php } ?>
 
     <form action="handle_login.php" method="post">
-        <h3>Enter your informatiom</h3>
+        <h3>Enter your Information </h3>
 
         <label for="name"> username:</label>
         <input type="text" id="name" name="username" required/>

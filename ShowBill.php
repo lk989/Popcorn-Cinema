@@ -48,7 +48,10 @@
         </div>
     </header>
     <br><br>
-
+<body>
+<?php
+      include 'header.php';
+    ?>
         <div class="content-cont">
             <div class="container2" >
             
@@ -62,14 +65,11 @@
                     <div class="welcome-cont" >
                     <table class="wel-content">
                     
-                    <tr>
-                                                <!-- content -->
-                                                
-                            <!-- the name of the name will be retrieved from the DB -->
+                    <tr>                                                
                           <td class="bil" ><p class="bill" style="font-size: 50px; "><?php echo $current_movie['name'];?> </p></td>                    
                     </tr>
 
-                    <!-- row 2 -->
+
                     <tr>
                         <td class="bil" ><p class="bill" style="font-size: 30px; ">Date:</p></td>
                          <!-- the date of the movie will be retrieved from the DB -->
