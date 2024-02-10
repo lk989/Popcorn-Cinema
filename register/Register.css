@@ -200,6 +200,23 @@ input {
   margin: 20px auto;
 }
 
+.arc-content a, .arc-content p{
+  padding: 0px !important;
+  margin: 0px auto !important;
+  width: 150px;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+
+}
+
+.account{
+  font-size: larger;
+  text-align: center;
+  color: var(--black);
+}
+
+
 /*a {
   color: #333;
   font-size: 14px;

@@ -83,6 +83,16 @@ header{
     height: 90px;
 }
 
+.arc-content a, .arc-content p{
+  padding: 0px !important;
+  margin: 0px auto !important;
+  width: 150px;
+  font-size: 24px;
+  text-align: center;
+  color: #fff;
+
+}
+
 .Guardians-poster{
     background-image: url(images/movies/Guardians-background.jpg);
     background-repeat: no-repeat;
