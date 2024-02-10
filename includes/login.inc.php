@@ -40,7 +40,7 @@ $result = get_user($pdo,$username); #fetch from database
 if($errors){
     
 $_SESSION["errors_login"]=$errors;
-header("Location: ../login.php");
+header("Location: login.php");
 die();
 
 }
@@ -54,7 +54,7 @@ $_SESSION["user_id"]= $result["id"];
 $_SESSION["user_username"]= htmlspecialchars($result["username"]);
 $_SESSION["last_regeneration"]=time();
 
-header("Location: ../login.php?loging=success");
+header("Location: login.php?loging=success");
 #رجعه
 $pdo=null;
 $stmt=null;
@@ -70,7 +70,7 @@ die("Query failed: ".$e->getMessage());
 
 else{
 
-    header("Location: ../login.php");#رجعه
+    header("Location: login.php");#رجعه
 die ();  #يوقفه من التشغيل 
 }
 

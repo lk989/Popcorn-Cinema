@@ -1,78 +1,69 @@
-<?php
-require_once 'includes/config_session.inc.php';
-require_once 'includes/login.inc.php';
-require_once 'includes/login_view.inc.php';
-?>
 <!DOCTYPE HTML>
 <html>
 
 <head>
-  <link rel="stylesheet" href="register/Register.css">
-  <!-- <link rel="stylesheet" href="CssStyleFile\Styleindex.css"> -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/25c00f3343.js" crossorigin="anonymous"></script>
-  <title>login page</title>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="register/Register.css">
+    <!-- <link rel="stylesheet" href="CssStyleFile\Styleindex.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/25c00f3343.js" crossorigin="anonymous"></script>
+    <title>login page</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
 <body>
 
 
-  <!--logo-->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
-        <li><a href="offers.php" class="nav-links">Offers</a></li>
-        <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
-        <li><a href="showing-now.php" class="nav-links">Movies</a></li>
-        <li><a href="menu.php" class="nav-links">Menu</a></li>
-      </ul>
-    </nav>
-    <div id="sign-in">
-      <div class="arc"></div>
-      <a href="login.php">
-        <p>Login / Sign Up</p>
-      </a>
-    </div>
-  </header>
-  <!--/////////////////////////////////////////////// --->
+    <!--logo-->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
+                <li><a href="offers.php" class="nav-links">Offers</a></li>
+                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
+                <li><a href="showing-now.php" class="nav-links">Movies</a></li>
+                <li><a href="menu.php" class="nav-links">Menu</a></li>
+            </ul>
+        </nav>
+        <div id="sign-in">
+            <div class="arc"></div>
+            <a href="login.php">
+                <p>Login / Sign Up</p>
+            </a>
+        </div>
+    </header>
+    <!--/////////////////////////////////////////////// --->
 
 
 
 
 
-  <img src="cinema.jpg" width="100%" height="100%" />
+    <img src="cinema.jpg" width="100%" height="100%" />
 
 
-<?php
+    <?php
 
-if(!isset($_SESSION["user_id"])){ ?>
+    if (!isset($_SESSION["user_id"])) { ?>
 
-<form  action="includes/login.inc.php" method="post">
-<h3>Enter your informatiom</h3>
+    <?php require_once 'login_errors.php'; ?>
+    <form action="handle_login.php" method="post">
+        <h3>Enter your informatiom</h3>
 
-<label for="name"> username:</label>
-<input type="text" id="name"  name ="username" required autocomplete="off" />
+        <label for="name"> username:</label>
+        <input type="text" id="name" name="username" required autocomplete="off" />
 
-<label for="password"> Password:</label>
-<input type="password" id="password" required  name="pwd" autocomplete="off" />
+        <label for="password"> Password:</label>
+        <input type="password" id="password" required name="pwd" autocomplete="off" />
 
-<button class="book-now">log in</button>
+        <button class="book-now">log in</button>
 
-</form>
- 
-  
-  <?php
-check_login_error();
-?>
+    </form>
 
-<?php } ?>
+    <?php } ?>
 
 
 </body>
