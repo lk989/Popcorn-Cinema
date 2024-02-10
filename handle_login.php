@@ -1,42 +1,47 @@
-<?php
-include 'queries.php';
+<?php 
+session_start(); 
+include "queries.php";
 
-$errors =[];
+if (isset($_POST['username']) && isset($_POST['pwd'])) {
 
-function is_empty(string $username, string $pwd ){
-    return (empty($username) || empty($pwd));
-}
+	function validate($data){
+       $data = trim($data);
+	   $data = stripslashes($data);
+	   $data = htmlspecialchars($data);
+	   return $data;
+	}
 
-function is_username_wrong( bool|array $result){
-    return !$result;
-} 
+	$username = validate($_POST['username']);
+	$pass = validate($_POST['pwd']);
 
-function is_password_wrong( string $pwd, string $hashedPwd ){
-    return !password_verify($pwd, $hashedPwd);
-}
+	if (empty($username)) {
+		header("Location: index.php?error=User Name is required");
+	    exit();
+	}else if(empty($pass)){
+        header("Location: index.php?error=Password is required");
+	    exit();
+	}else{
+		// hashing the password
+        $result = fetch_user("username = '$username'");
 
-if($_SERVER["REQUEST_METHOD"] === "POST"){
-
-    $username = $_POST["username"];
-    $password = $_POST["pwd"];
-
-    is_empty($username, $password) ? $errors["empty_input"]="Fill in all fields!" : '';
-    
-    $user = fetch_user("username = '" . $username . "'"); #fetch from database
-    is_username_wrong($user) ? $errors["loging_incorrect"]="Incorrect login info!" : '';
-    !is_username_wrong($result) && is_password_wrong( $pwd,$result["pwd"]) ? $errors["loging_incorrect"]="Incorrect login info!" : '';
-    
-    if($errors){
-        $_SESSION["errors_login"]=$errors;
-        header("Location: login.php");
-        die();    
-    }
-    else{
-        echo 'success';
-    }
-
-}
-else{
-    header("Location: login.php"); 
-    die ();
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+            if ($row['username'] === $username && password_verify($pass, $row['pwd'])) {
+            	$_SESSION['username'] = $row['username'];
+            	$_SESSION['id'] = $row['id'];
+            	header("Location: index.php");
+		        exit();
+            }else{
+				header("Location: login.php?error=Incorect User name or password");
+		        exit();
+			}
+		}else{
+			header("Location: login.php?error=Incorect User name or password");
+	        exit();
+		}
+	}
+	
+}else{
+	header("Location: index.php");
+	exit();
 }

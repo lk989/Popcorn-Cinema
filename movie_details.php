@@ -34,23 +34,9 @@
             $current_weekday = date("D");
         }
     ?>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
-                <li><a href="offers.php" class="nav-links">Offers</a></li>
-                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
-                <li><a href="showing-now.php" class="nav-links">Movies</a></li>
-                <li><a href="menu.php" class="nav-links">Menu</a></li>
-            </ul>
-        </nav>
-        <div id="sign-in">
-            <div class="arc"></div>
-            <a href="login.php">
-                <p>Login / Sign Up</p>
-            </a>
-        </div>
-    </header>
+    <?php 
+        include('header.php');
+    ?>
     <div class="booking">
         <div class="movie-poster mermaid">
             <section class="movie-opacity"></section>

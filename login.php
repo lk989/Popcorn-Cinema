@@ -17,32 +17,28 @@
 
 <body>
     <?php
-      include 'header.html';
+      include 'header.php';
     ?>
 
-    <img src="cinema.jpg" width="100%" height="100%" />
-
-
-    <?php
-
-    if (!isset($_SESSION["user_id"])) { ?>
+    <?php if (isset($_GET['error'])) { ?>
+   		<p class="error"><?php echo $_GET['error']; ?></p>
+    <?php } ?>
 
     <form action="handle_login.php" method="post">
         <h3>Enter your informatiom</h3>
 
         <label for="name"> username:</label>
-        <input type="text" id="name" name="username" required autocomplete="off" />
+        <input type="text" id="name" name="username" required/>
 
         <label for="password"> Password:</label>
         <input type="password" id="password" required name="pwd" autocomplete="off" />
 
         <button class="book-now">log in</button>
-
+        <p class="account">
+        Doesn't have an account? 
+        <a href="signup.php" >signup</a>
+        </p>
     </form>
 
-    <?php } ?>
-
-
 </body>
-
 </html>

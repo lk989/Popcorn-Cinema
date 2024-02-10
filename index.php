@@ -24,7 +24,7 @@
         $latest_movie = fetch_all('movie', true, null,'1');
         $latest_showing_now = fetch_all('movie', true, 'showing_now = "1"', '4');
         $latest_coming_soon = fetch_all('movie', true, 'showing_now = "0"', '4');
-        include('header.html');
+        include('header.php');
     ?>
     
     <?php if (isset($_GET['success'])) { ?>

@@ -20,7 +20,7 @@
     
     <!--logo-->
     <?php
-      include('header.html');
+      include('header.php');
     ?>
     <!--/////////////////////////////////////////////// --->
 
@@ -69,6 +69,10 @@
     <?php }?>
     
 <button class="book-now">sign up</button>
+<p class="account">
+Already have an account? 
+  <a href="login.php" >login</a>
+</p>
 
   </form>
 <?php

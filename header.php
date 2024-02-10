@@ -10,8 +10,24 @@
     </nav>
     <div id="sign-in">
         <div class="arc"></div>
-        <a href="login.php">
+        <div class="arc-content">
+        <?php
+        session_start();
+        if (isset($_SESSION['id']) && isset($_SESSION['username'])){
+        ?>
+        <p>Hello <?php echo $_SESSION['username'] ?></p>
+        <a href="logout.php">
+            <p>Logout</p>
+        </a>
+        <?php
+        }else{
+        ?>
+        <a href="signup.php">
             <p>Login / Sign Up</p>
         </a>
+        <?php
+        }
+        ?>
+        </div>
     </div>
 </header>

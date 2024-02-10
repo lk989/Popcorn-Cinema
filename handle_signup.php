@@ -46,8 +46,6 @@ if (isset($_POST['username']) && isset($_POST['pwd'])
 	}
 
 	else{
-        $pass = md5($password);
-
         $result = fetch_user("username = '$username' OR email = '$email' OR phone = '$phone'");
 
 		if (mysqli_num_rows($result) > 0) {
