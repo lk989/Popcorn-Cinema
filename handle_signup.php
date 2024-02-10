@@ -54,7 +54,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])
 		}else {
             $result2 = create_user($username, $password, $email ,$phone, $birthdate);
             if ($result2) {
-                header("Location: index.php?success=Your account has been created successfully");
+                header("Location: login.php?success=Your account has been created successfully");
                 exit();
             }else {
                 header("Location: signup.php?error=unknown error occurred&$user_data");

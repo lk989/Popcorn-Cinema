@@ -27,9 +27,6 @@
         include('header.php');
     ?>
     
-    <?php if (isset($_GET['success'])) { ?>
-        <p class="success"><?php echo $_GET['success']; ?></p>
-    <?php } ?>
     <div class="Guardians-poster">
         <section class="background-opacity"></section>
         <section class="background-content">
