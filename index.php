@@ -22,41 +22,37 @@
         include 'queries.php';
         $movies = fetch_all('movie');
         $latest_movie = fetch_all('movie', true, null,'1');
+        $movie=$latest_movie->fetch_assoc();
         $latest_showing_now = fetch_all('movie', true, 'showing_now = "1"', '4');
         $latest_coming_soon = fetch_all('movie', true, 'showing_now = "0"', '4');
         include('header.php');
     ?>
     
-    <div class="Guardians-poster">
-        <section class="background-opacity"></section>
+    <div class="background">
+        <div class="big-poster-container">
+            <img src="<?php echo $movie['poster'];?>" alt="" class="big-poster">
+        </div>
         <section class="background-content">
-        <?php 
-            while($movie=$latest_movie->fetch_assoc())
-            {
+            <?php 
                 $dateTime = DateTime::createFromFormat('H:i:s', $movie['duration']);
                 $formattedTime = $dateTime->format('H \h i \m');
-        ?>
-                <h1 class="title"><?php echo $movie['name'];?></h1>
-                <p><?php echo $formattedTime . ' . ' . $movie['language']?></p>
-
-                <div class="movie-type">
+            ?>
+            <h1 class="title"><?php echo $movie['name'];?></h1>
+            <p><?php echo $formattedTime . ' . ' . $movie['language']?></p>
+            <div class="movie-type">
                 <?php 
                     $genres = fetch_all('genre', false, 'id in (SELECT genre_id FROM movie_genres WHERE movie_id = ' . $movie['id'] . ')', null);
                     while($genre=$genres->fetch_assoc())
                     {
                 ?>
-                    <div class="type"><?php echo $genre['name'];?></div>
-                <?php
-                    }
-                ?>
-                </div>
-                
-                <p><?php echo $movie['description'];?></p>
-
-                <a href="guardians.html"><button class="book-now" role="button">book now!</button></a>
-        <?php
-            }
-        ?>
+                        <div class="type"><?php echo $genre['name'];?></div>
+                    <?php
+                        }
+                    ?>
+            </div>
+                    
+                    <p><?php echo $movie['description'];?></p>
+                    <a href="movie_details.php?id=<?php echo $movie['id'];?>"><button class="book-now" role="button">book now!</button></a>
         </section>
     </div>
     <section class="movie-container">
