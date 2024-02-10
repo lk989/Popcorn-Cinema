@@ -49,16 +49,16 @@
     
     <label for="email"> Email:</label>
     <?php if (isset($_GET['email'])) { ?>
-      <input required type="ameil" name="email" placeholder="email" value="<?php echo $_GET['email']; ?>" autocomplete="off"><br>
+      <input required type="email" name="email" placeholder="email" value="<?php echo $_GET['email']; ?>" autocomplete="off"><br>
     <?php }else{ ?>
-      <input required type="ameil" name="email" placeholder="email" autocomplete="off"><br>
+      <input required type="email" name="email" placeholder="email" autocomplete="off"><br>
     <?php }?>
 
     <label for="phone"> phone:</label>
     <?php if (isset($_GET['phone'])) { ?>
-      <input required type="phone" name="phone" placeholder="phone" value="<?php echo $_GET['phone']; ?>" ><br>
+      <input required type="number" name="phone" placeholder="phone" value="<?php echo $_GET['phone']; ?>" ><br>
     <?php }else{ ?>
-      <input required type="phone" name="phone" placeholder="phone" ><br>
+      <input required type="number" name="phone" placeholder="phone" ><br>
     <?php }?>
 
     <label for="birthdate"> birthdate:</label>

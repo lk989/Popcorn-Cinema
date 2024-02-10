@@ -30,7 +30,6 @@
         ];
         $hashedPwd= password_hash($password,PASSWORD_BCRYPT,$options);
         $sql="INSERT INTO user (username, pwd, email, phone, birthdate) VALUES ('$username', '$hashedPwd', '$email', '$phone', '$birthdate')";
-        echo $sql;
         $result = $conn->query($sql);
         CloseCon($conn);
         return $result;
