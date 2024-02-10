@@ -88,7 +88,9 @@
                         }
                 ?>
                         <td class="<?php if ($num_shows == 0) echo 'disabled-container' ?>">
+                        
                             <a href="seats.php?date=<?php echo $date ?>&id=<?php echo $movie_id ?>" class="<?php if ($num_shows == 0) echo 'disabled-link' ?>"><?php echo $date ?></a><br>
+
                         </td>
                 <?php
                     }

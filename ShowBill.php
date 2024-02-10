@@ -21,7 +21,6 @@
             $movie_id = $_GET['id'];
             $query = fetch_all('movie', true, 'id = ' . $movie_id, '1');
             $current_movie = $query->fetch_assoc();
-
             $dateTime = DateTime::createFromFormat('H:i:s', $current_movie['duration']);
             $formattedTime = $dateTime->format('H \h i \m');
             $genres = fetch_all('genre', false, 'id in (SELECT genre_id FROM movie_genres WHERE movie_id = ' . $movie_id . ')', null);
@@ -50,11 +49,6 @@
     </header>
     <br><br>
 
-    <!-- <img  width="700" height="350" id="mondayOffers"> -->
-
-<!-- container -->
-<!-- <div class="cont"> -->
-    <!-- <div class="cont2"> -->
         <div class="content-cont">
             <div class="container2" >
             
@@ -79,14 +73,14 @@
                     <tr>
                         <td class="bil" ><p class="bill" style="font-size: 30px; ">Date:</p></td>
                          <!-- the date of the movie will be retrieved from the DB -->
-                        <td class="bil" ><p class="bill" style="font-size: 30px; ">11/2/2024</p></td>
+                        <td class="bil" ><p class="bill" style="font-size: 30px; "><?php echo $current_movie['name'];?></p></td>
                     </tr>
 
                      <!-- row 3 -->
                      <tr>
                         <td class="bil"><p class="bill" style="font-size: 30px; ">Time:</p></td>
                          <!-- the time of the movie will be retrieved from the DB -->
-                        <td class="bil"><p class="bill" style="font-size: 30px; ">5:00 pm </p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; "><?php echo $current_movie['name'];?> </p></td>
                      </tr>
 
                      <!-- row 4 -->
