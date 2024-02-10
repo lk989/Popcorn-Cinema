@@ -1,7 +1,4 @@
 <?php
-require_once 'dhb.inc.php';
-
-
 if($_SERVER["REQUEST_METHOD"] ==="POST"){
 
 $username= $_POST['username'];
@@ -11,8 +8,8 @@ try {
 
 require_once 'dhb.inc.php';
 require_once 'login_model.inc.php';
-require_once 'login_view.inc.php';
 require_once 'login_contr.inc.php';
+require_once 'login_view.inc.php';
 #Erorr handling
 #اللي حترجع ترو يعني ايررو
 
@@ -67,6 +64,7 @@ die("Query failed: ".$e->getMessage());
 }
 
 }
+
 else{
 
     header("Location: ../login.php");#رجعه
