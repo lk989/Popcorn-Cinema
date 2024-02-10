@@ -29,12 +29,12 @@ if(isset($_SESSION["user_id"])){
 
 else{
 if (!isset($_SESSION["last_regeneration"])){
-    regenerate_session_id_loggedin();
+    regenerate_session_id();
 }
 else{
 $interval = 60 * 30;
 if(time() - $_SESSION["last_regeneration"]>=$interval){
-    regenerate_session_id_loggedin();
+    regenerate_session_id();
 }
 }
 }
@@ -44,10 +44,11 @@ if(time() - $_SESSION["last_regeneration"]>=$interval){
 function regenerate_session_id_loggedin(){
 
     session_regenerate_id(true);
-    $userID=$_SESSION["user_id"];
+
+    $userId=$_SESSION["user_id"];
     $newSessionId = session_create_id();
-    $_sessionId = $newSessionId . "_" . $userID;
-    session_id($_sessionId);
+    $sessionId = $newSessionId . "_" . $userId;
+    session_id($sessionId);
     $_SESSION["last_regeneration"]=time();
 
 }

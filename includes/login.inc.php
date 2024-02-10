@@ -20,19 +20,22 @@ if(is_input_empty($username, $pwd)){
     $errors["empty_input"]="Fill in all fields!";
 }
 
-$result =get_user($pdo,$username); #fetch from database
+$result = get_user($pdo,$username); #fetch from database
 
-require_once 'config_session.inc.php';
 
 
  if(is_username_wrong($result)){
     $errors["loging_incorrect"]="Incorrect login info!";
  }
 
+
+
  if(!is_username_wrong($result)&& is_password_wrong( $pwd,$result["pwd"])){
     $errors["loging_incorrect"]="Incorrect login info!";
 
  }
+
+ require_once 'config_session.inc.php';
 
 if($errors){
     
@@ -44,15 +47,15 @@ die();
 
 
 $newSessionId = session_create_id();
-$_sessionId = $newSessionId . "_" .$result["id"];
-session_id($_sessionId);
+$sessionId = $newSessionId . "_" .$result["id"];
+session_id($sessionId);
 
-$_SESSION["user_id"]=$result["id"];
+$_SESSION["user_id"]= $result["id"];
 $_SESSION["user_username"]= htmlspecialchars($result["username"]);
 $_SESSION["last_regeneration"]=time();
 
-header("Location: ../login.php?loging=success");#رجعه
-
+header("Location: ../login.php?loging=success");
+#رجعه
 $pdo=null;
 $stmt=null;
 die();
