@@ -16,31 +16,9 @@
 </head>
 
 <body>
-
-
-    <!--logo-->
-    <header>
-        <nav>
-            <ul>
-                <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
-                <li><a href="offers.php" class="nav-links">Offers</a></li>
-                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
-                <li><a href="showing-now.php" class="nav-links">Movies</a></li>
-                <li><a href="menu.php" class="nav-links">Menu</a></li>
-            </ul>
-        </nav>
-        <div id="sign-in">
-            <div class="arc"></div>
-            <a href="login.php">
-                <p>Login / Sign Up</p>
-            </a>
-        </div>
-    </header>
-    <!--/////////////////////////////////////////////// --->
-
-
-
-
+    <?php
+      include 'header.html';
+    ?>
 
     <img src="cinema.jpg" width="100%" height="100%" />
 
@@ -49,7 +27,6 @@
 
     if (!isset($_SESSION["user_id"])) { ?>
 
-    <?php require_once 'login_errors.php'; ?>
     <form action="handle_login.php" method="post">
         <h3>Enter your informatiom</h3>
 

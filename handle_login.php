@@ -1,23 +1,42 @@
 <?php
-require_once 'includes/config_session.inc.php';
-require_once 'includes/login_model.inc.php';
-require_once 'includes/login_contr.inc.php';
+include 'queries.php';
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
+$errors =[];
+
+function is_empty(string $username, string $pwd ){
+    return (empty($username) || empty($pwd));
+}
+
+function is_username_wrong( bool|array $result){
+    return !$result;
+} 
+
+function is_password_wrong( string $pwd, string $hashedPwd ){
+    return !password_verify($pwd, $hashedPwd);
+}
+
+if($_SERVER["REQUEST_METHOD"] === "POST"){
+
     $username = $_POST["username"];
-    $password = $_POST["password"];
+    $password = $_POST["pwd"];
 
-    if (validate_credentials($username, $password)) {
-        $_SESSION["user_username"] = $username;
-
-        header("Location: index.php");
-        exit(); 
-    } else {
-        $_SESSION["login_error"] = "Incorrect username or password.";
+    is_empty($username, $password) ? $errors["empty_input"]="Fill in all fields!" : '';
+    
+    $user = fetch_user("username = '" . $username . "'"); #fetch from database
+    is_username_wrong($user) ? $errors["loging_incorrect"]="Incorrect login info!" : '';
+    !is_username_wrong($result) && is_password_wrong( $pwd,$result["pwd"]) ? $errors["loging_incorrect"]="Incorrect login info!" : '';
+    
+    if($errors){
+        $_SESSION["errors_login"]=$errors;
         header("Location: login.php");
-        exit();
+        die();    
     }
-} else {
-    header("Location: login.php");
-    exit();
+    else{
+        echo 'success';
+    }
+
+}
+else{
+    header("Location: login.php"); 
+    die ();
 }

@@ -19,29 +19,17 @@
 
 <body>
     <?php
-        include 'fetch_query.php';
+        include 'queries.php';
         $movies = fetch_all('movie');
         $latest_movie = fetch_all('movie', true, null,'1');
         $latest_showing_now = fetch_all('movie', true, 'showing_now = "1"', '4');
         $latest_coming_soon = fetch_all('movie', true, 'showing_now = "0"', '4');
+        include('header.html');
     ?>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="coming-soon.php" class="wide nav-links">Coming soon</a></li>
-                <li><a href="offers.php" class="nav-links">Offers</a></li>
-                <li><a href="index.php"><img src="images/logo.png" id="logo"></a></li>
-                <li><a href="showing-now.php" class="nav-links">Movies</a></li>
-                <li><a href="menu.php" class="nav-links">Menu</a></li>
-            </ul>
-        </nav>
-        <div id="sign-in">
-            <div class="arc"></div>
-            <a href="login.php">
-                <p>Login / Sign Up</p>
-            </a>
-        </div>
-    </header>
+    
+    <?php if (isset($_GET['success'])) { ?>
+        <p class="success"><?php echo $_GET['success']; ?></p>
+    <?php } ?>
     <div class="Guardians-poster">
         <section class="background-opacity"></section>
         <section class="background-content">

@@ -18,7 +18,7 @@
 
 <body>
     <?php
-        include 'fetch_query.php';
+        include 'queries.php';
         if (isset($_GET['id'])) {
             $movie_id = $_GET['id'];
             $query = fetch_all('movie', true, 'id = ' . $movie_id, '1');

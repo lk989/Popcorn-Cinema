@@ -15,9 +15,10 @@ require_once 'login_view.inc.php';
 
 $errors =[];
 
-
-if(is_input_empty($username, $pwd)){
-    $errors["empty_input"]="Fill in all fields!";
+function validate_credentials ($username, $pwd){
+    if(is_input_empty($username, $pwd)){
+        $errors["empty_input"]="Fill in all fields!";
+    }
 }
 
 $result = get_user($pdo,$username); #fetch from database
