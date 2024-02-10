@@ -17,6 +17,7 @@ require_once 'includes/login_view.inc.php';
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/25c00f3343.js" crossorigin="anonymous"></script>
   <title>login page</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
 </head>
 
 <body>
@@ -49,23 +50,30 @@ require_once 'includes/login_view.inc.php';
   <img src="cinema.jpg" width="100%" height="100%" />
 
 
+<?php
 
-  <form  action="includes/login.inc.php" method="post">
-    <h3>Enter your informatiom</h3>
+if(!isset($_SESSION["user_id"])){ ?>
 
-    <label for="name"> username:</label>
-    <input type="text" id="name"  name ="username" required autocomplete="off" />
+<form  action="includes/login.inc.php" method="post">
+<h3>Enter your informatiom</h3>
 
-    <label for="password"> Password:</label>
-    <input type="password" id="password" required  name="pwd" autocomplete="off" />
-    
-    <button class="book-now">sign up</button>
+<label for="name"> username:</label>
+<input type="text" id="name"  name ="username" required autocomplete="off" />
 
-  </form>
+<label for="password"> Password:</label>
+<input type="password" id="password" required  name="pwd" autocomplete="off" />
+
+<button class="book-now">log in</button>
+
+</form>
+ 
   
   <?php
 check_login_error();
 ?>
+
+<?php } ?>
+
 
 </body>
 
