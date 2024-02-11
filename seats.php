@@ -152,8 +152,8 @@
         var selectedTime = document.getElementById('time').value;
         var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + '&time=' + encodeURIComponent(selectedTime) + '&price=' + totalSpan.textContent;
         window.location.href = url;
-        selectedSeats = [];
         updateCounterAndTotal();
+        selectedSeats = [];
       } else {
         alert('Please select at least one seat.');
       }
