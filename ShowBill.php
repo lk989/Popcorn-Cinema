@@ -51,13 +51,36 @@
     <br><br>
 <body>
 
+<style>
+    .text-block2 img {
+    position: absolute;
+    top: 342px;
+    left: 450px;
+    width: 170px;
+    height: auto;
+    border-radius: 10px;
+    background: #772C66;
+}
+.movie-poster {
+    width: 500px; /* Set the width of the poster */
+    height: 600x; /* Automatically adjust the height to maintain aspect ratio */
+    border-radius: 10px; /* Add rounded corners */
+    /* Set the position to absolute */
+    top: 90%; /* Position the top edge slightly below the vertical center */
+    left: 50%; /* Position the left edge at the horizontal center */
+    transform: translate(-30%, -50%); /* Translate the image back by half of its own width and height */
+}
+
+
+</style>
         <div class="content-cont">
             <div class="container2" >
             
                 <p id = "rcorners1"> </p>
                 <!-- the image -->
                 <div class="text-block2">
-                    <img  src="images/movies/barbie.webp"  >
+                <img src="<?php echo $current_movie['poster']; ?>" alt="Movie Poster" class="movie-poster">
+
                 </div>
             
                 <div class="text-block">
