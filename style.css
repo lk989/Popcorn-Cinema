@@ -234,10 +234,11 @@ table{
 }
 
 .img-posters p{
-    line-height: 25px;
+    line-height: 0px;
+    margin: 7px 0;
     color: var(--gray);
-    font-size: 1.2rem;
-    display: inline;
+    font-size: 1.5rem;
+    /* display: inline; */
 }
 
 .poster-content{
@@ -340,44 +341,6 @@ table button{
     border-radius: 0 50px 50px 0;
     box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 5px;
 }
-
-.guardians{
-    background-image: url('https://image.tmdb.org/t/p/w500/4zdyTce32M3uKU8gS31d4ZsmNhQ.jpg');
-}
-
-.spider{
-    background-image: url("https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683043451091-cd0d329c-3902-4f28-9fa8-820dafdf974a.jpg&w=3840&q=75");
-}
-
-.mario{
-    background-image: url('https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683021968077-4a3713d5-eca8-4c32-8491-a11c97175995.jpg&w=3840&q=75');
-}
-
-.mermaid{
-    background-image: url('https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1682905252634-1183e400-822b-468f-8003-dee7995ffbda.png&w=3840&q=75');
-}
-
-.elshar{
-    background-image: url('https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683021991249-6adcdb94-deb2-44db-b987-a0beda8387ed.jpg&w=3840&q=75');
-}
-
-.fast{
-    background-image: url('https://m.media-amazon.com/images/M/MV5BNzZmOTU1ZTEtYzVhNi00NzQxLWI5ZjAtNWNhNjEwY2E3YmZjXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg');
-}
-
-.barbie{
-    background-image: url('https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1685356390900-c0f72746-eb43-4def-8aa3-513981ae3b40.jpg&w=3840&q=75');
-}
-
-.wish{
-    background-image: url('https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1683544836865-774db6d1-83bf-432f-a924-06493e4e54f3.jpg&w=3840&q=75');
-}
-
-.hunger{
-    background-image: url('https://www.muvicinemas.com/_next/image?url=https%3A%2F%2Fd3th1nqbpcyfdw.cloudfront.net%2F1684161737451-35183d0a-105f-4cd2-af3a-49b8a206dc01.jpg&w=3840&q=75');
-}
-
-
 
 .movie-opacity{
     opacity: 0.8;
@@ -501,6 +464,14 @@ table button{
     padding-left:30px;
      padding-right:25px;
 
+  }
+
+  .grid-container {
+    display: grid;
+    /* grid-template-columns: auto auto auto; */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    margin: 40px;
   }
 
 #Movies td{
