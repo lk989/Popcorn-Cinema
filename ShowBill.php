@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>First Level</title>
+    <title> Bill </title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap" rel="stylesheet">
@@ -16,17 +16,18 @@
 <body>
 
 <?php
-        include 'fetch_query.php';
+        include 'queries.php';
         if (isset($_GET['id'])) {
             $movie_id = $_GET['id'];
             $query = fetch_all('movie', true, 'id = ' . $movie_id, '1');
             $current_movie = $query->fetch_assoc();
-            $dateTime = DateTime::createFromFormat('H:i:s', $current_movie['duration']);
-            $formattedTime = $dateTime->format('H \h i \m');
-            $genres = fetch_all('genre', false, 'id in (SELECT genre_id FROM movie_genres WHERE movie_id = ' . $movie_id . ')', null);
-            $current_day = date("j");
-            $current_month = date("M");
-            $current_weekday = date("D");
+            date_default_timezone_set('Asia/Riyadh'); // Set timezone to Middle East (Riyadh)
+            $current_time = date("h:i A"); // Current time in "hour:minute AM/PM" format in Middle East timezone
+            $seatIdsParam = $_GET['seat_ids'];
+            $seatIdsArray = explode(',', $seatIdsParam);
+            $seatIdsString = implode(', ', $seatIdsArray);
+
+          
         }
     ?>
 
@@ -49,9 +50,7 @@
     </header>
     <br><br>
 <body>
-<?php
-      include 'header.php';
-    ?>
+
         <div class="content-cont">
             <div class="container2" >
             
@@ -66,34 +65,34 @@
                     <table class="wel-content">
                     
                     <tr>                                                
-                          <td class="bil" ><p class="bill" style="font-size: 50px; "><?php echo $current_movie['name'];?> </p></td>                    
+                          <td class="bil" ><p class="bill" style="font-size: 30px; "> Name:<?php echo" ". $current_movie['name'];?></p></td>                    
                     </tr>
 
 
                     <tr>
-                        <td class="bil" ><p class="bill" style="font-size: 30px; ">Date:</p></td>
+                        <td class="bil" ><p class="bill" style="font-size: 30px; ">Date: <?php echo $_GET['date']?></p></td>
                          <!-- the date of the movie will be retrieved from the DB -->
                         <td class="bil" ><p class="bill" style="font-size: 30px; "></p></td>
                     </tr>
 
                      <!-- row 3 -->
                      <tr>
-                        <td class="bil"><p class="bill" style="font-size: 30px; ">Time:</p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; ">Time: <?php echo $_GET['time'];?> </p></td>
                          <!-- the time of the movie will be retrieved from the DB -->
                         <td class="bil"><p class="bill" style="font-size: 30px; "> </p></td>
                      </tr>
 
                      <!-- row 4 -->
                      <tr>
-                        <td class="bil"><p class="bill" style="font-size: 30px; ">Seats:</p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; ">Seats:<?php echo " $seatIdsString";?></p></td>
                          <!-- the seats of the movie will be retrieved from the DB -->
-                        <td class="bil"><p class="bill" style="font-size: 30px; ">E6,E7 </p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; "></p></td>
                      </tr>
 
                     <tr>
-                        <td class="bil"><p class="bill" style="font-size: 30px; ">Price:</p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; ">Price:  <?php echo $current_movie['price']." SAR";?></p></td>
                          <!-- the price of the ticket will be retrieved from the DB -->
-                        <td class="bil"><p class="bill" style="font-size: 30px; ">70 SAR </p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; "> </p></td>
                     </tr>
 
 

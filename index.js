@@ -32,7 +32,7 @@ const button = document.getElementById("book");
 
 populateUI();
 
-var ticketPrice = +movieSelect.value;
+var ticketPrice = +150;
 
 // Save selected movie index and price
 function setMovieData(movieIndex, moviePrice) {
