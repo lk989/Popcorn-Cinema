@@ -72,14 +72,14 @@
       <div class="seat sold"></div>
     </div>
     <div class="row">
-      <div onclick="sendSeatId(14)"></div>
-      <div onclick="sendSeatId(15)"></div>
-      <div onclick="sendSeatId(16)"></div>
-      <div onclick="sendSeatId(17)"></div>
-      <div onclick="sendSeatId(18)"></div>
-      <div onclick="sendSeatId(19)"></div>
-      <div onclick="sendSeatId(20)"></div>
-      <div onclick="sendSeatId(21)"></div>
+      <div  class="seat" onclick="sendSeatId(14)"></div>
+      <div  class="seat"onclick="sendSeatId(15)"></div>
+      <div  class="seat"onclick="sendSeatId(16)"></div>
+      <div class="seat" onclick="sendSeatId(17)"></div>
+      <div class="seat" onclick="sendSeatId(18)"></div>
+      <div  class="seat"onclick="sendSeatId(19)"></div>
+      <div class="seat" onclick="sendSeatId(20)"></div>
+      <div  onclick="sendSeatId(21)"></div>
     </div>
     <div class="row">
       <div class="seat"  onclick="sendSeatId(22)"></div>
@@ -121,43 +121,70 @@
   <button class="book-seat" role="button" id="book" onclick="bookingSeat()">book!</button>
 
   <script src="index.js"></script>
-</body>
-<script>
-        var selectedSeats = [];
+  <script>
+    var selectedSeats = [];
+    var countSpan = document.getElementById('count');
+    var totalSpan = document.getElementById('total');
 
-        function sendSeatId(seatId) {
-            var seat = document.getElementsByClassName('seat')[seatId - 1];
-            if (seat.classList.contains('selected')) {
-                seat.classList.remove('selected');
-                selectedSeats = selectedSeats.filter(id => id !== seatId);
-            } else {
-                seat.classList.add('selected');
-                selectedSeats.push(seatId);
-            }
-            updateCounterAndTotal();
-        }
+    function sendSeatId(seatId) {
+      var seat = document.getElementsByClassName('seat')[seatId - 1];
+      if (seat.classList.contains('selected')) {
+        seat.classList.remove('selected');
+        selectedSeats = selectedSeats.filter(id => id !== seatId);
+      } else {
+        seat.classList.add('selected');
+        selectedSeats.push(seatId);
+      }
+      updateCounterAndTotal();
+    }
 
-        function updateCounterAndTotal() {
-            var countSpan = document.getElementById('count');
-            var totalSpan = document.getElementById('total');
-            var count = selectedSeats.length;
-            var total = count * 100; // Replace 100 with the actual price per seat
-            countSpan.textContent = count;
-            totalSpan.textContent = total;
-        }
+    function updateCounterAndTotal() {
+      var count = selectedSeats.length;
+      var total = count * parseInt(document.getElementById('time').value); // Replace 100 with the actual price per seat
+      countSpan.textContent = count;
+      totalSpan.textContent = total;
+    }
 
-        function bookingSeat() {
-    if (selectedSeats.length > 0) {
+    function bookingSeat() {
+      if (selectedSeats.length > 0) {
         var currentDate = new URLSearchParams(window.location.search).get('date');
         var currentMovieId = new URLSearchParams(window.location.search).get('id');
         var selectedTime = document.getElementById('time').value;
-        var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + '&time=' + encodeURIComponent(selectedTime);
+        var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + '&time=' + encodeURIComponent(selectedTime) + '&price=' + totalSpan.textContent;
         window.location.href = url;
-    } else {
+        selectedSeats = [];
+        updateCounterAndTotal();
+      } else {
         alert('Please select at least one seat.');
+      }
     }
-}
 
-    </script>
+    function clearSelectedSeats() {
+      selectedSeats = [];
+      updateCounterAndTotal();
+    }
+
+    // Run clearSelectedSeats() when the page loads
+    document.addEventListener('DOMContentLoaded', clearSelectedSeats);
+
+    // Check if sessionStorage has selected seats on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      if (sessionStorage.getItem('selectedSeats')) {
+        selectedSeats = JSON.parse(sessionStorage.getItem('selectedSeats'));
+        updateCounterAndTotal();
+      }
+    });
+
+    // Save selected seats to sessionStorage before page reload
+    window.addEventListener('beforeunload', function() {
+      sessionStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+    });
+  </script>
+
+
+</body>
+
+
 
 </html>
+

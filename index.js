@@ -92,9 +92,20 @@ container.addEventListener("click", (e) => {
   ) {
     e.target.classList.toggle("selected");
 
-    updateSelectedCount();
+    updateSelectedCountAndTotal();
   }
 });
+container.addEventListener("click", (e) => {
+  if (
+    e.target.classList.contains("seat") &&
+    !e.target.classList.contains("sold")
+  ) {
+    e.target.classList.toggle("selected");
+
+    updateSelectedCountAndTotal();
+  }
+});
+
 
 // Initial count and total set
 updateSelectedCount();

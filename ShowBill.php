@@ -25,6 +25,7 @@
             $current_time = date("h:i A"); // Current time in "hour:minute AM/PM" format in Middle East timezone
             $seatIdsParam = $_GET['seat_ids'];
             $seatIdsArray = explode(',', $seatIdsParam);
+            $seatCount = count($seatIdsArray); // Count the number of elements in the array
             $seatIdsString = implode(', ', $seatIdsArray);
 
           
@@ -113,7 +114,7 @@
                      </tr>
 
                     <tr>
-                        <td class="bil"><p class="bill" style="font-size: 30px; ">Price:  <?php echo $current_movie['price']." SAR";?></p></td>
+                        <td class="bil"><p class="bill" style="font-size: 30px; ">Price:  <?php echo $current_movie['price']*$seatCount." SAR";?></p></td>
                          <!-- the price of the ticket will be retrieved from the DB -->
                         <td class="bil"><p class="bill" style="font-size: 30px; "> </p></td>
                     </tr>
