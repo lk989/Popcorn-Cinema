@@ -15,14 +15,13 @@
         session_start();
         if (isset($_SESSION['id']) && isset($_SESSION['username'])){
         ?>
-        <p>Hello <?php echo $_SESSION['username'] ?></p>
-        <a href="logout.php">
-            <p>Logout</p>
+        <a href="account.php?id=<?php echo $_SESSION['id'];?>">
+            <p>Hello <?php echo $_SESSION['username'] ?></p>
         </a>
         <?php
         }else{
         ?>
-        <a href="signup.php">
+        <a href="login.php">
             <p>Login / Sign Up</p>
         </a>
         <?php

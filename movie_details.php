@@ -20,15 +20,15 @@
     <?php
         include 'queries.php';
         if (isset($_GET['id'])) {
-            $movie_id = $_GET['id'];
-            $query = fetch_all('movie', true, 'id = ' . $movie_id, '1');
+            $current_movie_id = $_GET['id'];
+            $query = fetch_all('movie', true, 'id = ' . $current_movie_id, '1');
             $current_movie = $query->fetch_assoc();
-            // $query_shows = fetch_all('movie', true, 'id = ' . $movie_id, '1');
-            // $query_shows = fetch_all('shows', false, 'movie_id = ' . $movie_id, null);
+            // $query_shows = fetch_all('movie', true, 'id = ' . $current_movie_id, '1');
+            // $query_shows = fetch_all('shows', false, 'movie_id = ' . $current_movie_id, null);
             // $shows = $query_shows->fetch_assoc();
             $dateTime = DateTime::createFromFormat('H:i:s', $current_movie['duration']);
             $formattedTime = $dateTime->format('H \h i \m');
-            $genres = fetch_all('genre', false, 'id in (SELECT genre_id FROM movie_genres WHERE movie_id = ' . $movie_id . ')', null);
+            $genres = fetch_all('genre', false, 'id in (SELECT genre_id FROM movie_genres WHERE movie_id = ' . $current_movie_id . ')', null);
             $current_day = date("j");
             $current_month = date("M");
             $current_weekday = date("D");
@@ -37,10 +37,11 @@
     <?php 
         include('header.php');
     ?>
-    <div class="booking">
-        <div class="movie-poster mermaid">
-            <section class="movie-opacity"></section>
-            <section class="movie-content">
+    <div class="details-poster">
+        <div class="details-poster-container">
+            <img src="<?php echo $current_movie['poster'];?>" alt="" class="big-poster">
+        </div>
+        <section class="movie-content">
                 <h1 class="title" id="title"><?php echo $current_movie['name'];?></h1>
                 <p id="duration"><?php echo $formattedTime . ' . ' . $current_movie['language']?></p>
                 <div class="movie-type">
@@ -55,46 +56,59 @@
                 </div>
                 <p id="synopsis"><?php echo $current_movie['description'];?></p>
             </section>
-        </div>
-        <section class="days">
-            <table>
-                <tr>
-                <?php
-                    $start_of_week = date('Y-m-d');
-                    $end_of_week = date('Y-m-d', strtotime('+6 days'));
+    </div>
+    <div class="booking">
+        <div class="movie-poster"></div>
+        <?php
+            if($current_movie['showing_now'] == 1){
 
-                    for ($i = 0; $i < 7; $i++) {
-                        $date = date('Y-m-d', strtotime("$start_of_week +$i days"));
+        ?>
+                <section class="days">
+                    <table>
+                        <tr>
+                        <?php
+                            $start_of_week = date('Y-m-d');
+                            $end_of_week = date('Y-m-d', strtotime('+6 days'));
 
-                        $query_shows = fetch("SELECT COUNT(*) AS num_shows FROM shows WHERE date = '$date' AND movie_id = $movie_id");
-                        $num_shows = 0;
-                        if ($query_shows) {
-                            $row_shows = $query_shows->fetch_assoc();
-                            $num_shows = $row_shows['num_shows'];
-                        }
-                ?>
-                        <td class="<?php if ($num_shows == 0) echo 'disabled-container' ?>">
-                        
-                            <a href="seats.php?date=<?php echo $date ?>&id=<?php echo $movie_id ?>" class="<?php if ($num_shows == 0) echo 'disabled-link' ?>"><?php echo $date ?></a><br>
+                            for ($i = 0; $i < 7; $i++) {
+                                $date = date('Y-m-d', strtotime("$start_of_week +$i days"));
 
-                        </td>
-                <?php
-                    }
-                ?>
+                                $query_shows = fetch("SELECT COUNT(*) AS num_shows FROM shows WHERE date = '$date' AND movie_id = $current_movie_id");
+                                $num_shows = 0;
+                                if ($query_shows) {
+                                    $row_shows = $query_shows->fetch_assoc();
+                                    $num_shows = $row_shows['num_shows'];
+                                }
+                        ?>
+                                <td class="<?php if ($num_shows == 0) echo 'disabled-container' ?>">
+                                
+                                    <a href="seats.php?date=<?php echo $date ?>&id=<?php echo $current_movie_id ?>" class="<?php if ($num_shows == 0) echo 'disabled-link' ?>"><?php echo $date ?></a><br>
 
-            
-                </tr>
-            </table>
-            <section class="cinema-class">
-                <img src="/images/movie.png" width="90px" height="90px">
-                <article>
-                    <b>Standard</b><br>Enjoy our comfy standard cinema experience with your friends and family where
-                    there is the regular leather cinema seating closer to the screen or the more comfortable Premium
-                    seats at the back. You can also pass by our concession area where you can pick the most delicious
-                    food and beverage for you.
-                </article>
-            </section>
-        </section>
+                                </td>
+                        <?php
+                            }
+                        ?>
+
+                    
+                        </tr>
+                    </table>
+                    <section class="cinema-class">
+                        <img src="images/movie.png" width="90px" height="90px">
+                        <article>
+                            <b>Standard</b><br>Enjoy our comfy standard cinema experience with your friends and family where
+                            there is the regular leather cinema seating closer to the screen or the more comfortable Premium
+                            seats at the back. You can also pass by our concession area where you can pick the most delicious
+                            food and beverage for you.
+                        </article>
+                    </section>
+                </section>
+        <?php
+            }else{
+        ?>
+            <div class="days coming-soon">Coming Soon !!</div>
+        <?php
+            }
+        ?>
     </div>
 </body>
 

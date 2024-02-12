@@ -200,6 +200,36 @@ input {
   margin: 20px auto;
 }
 
+.account-actions{
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+.account-actions .account-btn{
+  padding: 10px 20px !important;
+  margin: 10px 5px;
+  color: var(--gray);
+  border-radius: 40px;
+  font-size: medium;
+}
+.account-actions .account-btn.delete{
+  border: 1px solid rgb(191, 18, 18);
+  color: rgb(191, 18, 18);
+}
+.account-actions .account-btn.delete:hover{
+  color: #fff;
+  background-color: rgb(191, 18, 18);
+  cursor: pointer;
+}
+.account-actions .account-btn.logout{
+  color: #fff;
+  background-color: var(--yellow);
+}
+.account-actions .account-btn.logout:hover{
+  background-color: var(--yellow, 0.2);
+  cursor: pointer;
+}
+
 .arc-content a, .arc-content p{
   padding: 0px !important;
   margin: 0px auto !important;

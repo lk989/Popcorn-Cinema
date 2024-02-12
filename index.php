@@ -27,7 +27,9 @@
         $latest_coming_soon = fetch_all('movie', true, 'showing_now = "0"', '4');
         include('header.php');
     ?>
-    
+    <?php if (isset($_GET['success'])) { ?>
+        <p class="success"><?php echo $_GET['success']; ?></p>
+    <?php } ?>
     <div class="background">
         <div class="big-poster-container">
             <img src="<?php echo $movie['poster'];?>" alt="" class="big-poster">

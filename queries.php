@@ -23,6 +23,15 @@
         return $result;
     }
 
+    function update($update, $id){
+        $conn = OpenCon();
+        $sql = "UPDATE user SET $update WHERE id = $id";
+        echo $sql;
+        $result = $conn->query($sql);
+        CloseCon($conn);
+        return $result;
+    }
+
     function create_user($username, $password, $email, $phone , $birthdate){
         $conn = OpenCon();
         $options =[
@@ -30,6 +39,14 @@
         ];
         $hashedPwd= password_hash($password,PASSWORD_BCRYPT,$options);
         $sql="INSERT INTO user (username, pwd, email, phone, birthdate) VALUES ('$username', '$hashedPwd', '$email', '$phone', '$birthdate')";
+        $result = $conn->query($sql);
+        CloseCon($conn);
+        return $result;
+    }
+
+    function delete($id){
+        $conn = OpenCon();
+        $sql="DELETE FROM user WHERE id = $id";
         $result = $conn->query($sql);
         CloseCon($conn);
         return $result;
