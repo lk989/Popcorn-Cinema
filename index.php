@@ -70,7 +70,9 @@
                         {
                     ?>
                             <td>
-                                <a href="movie_details.php?id=<?php echo $showing_now['id'];?>">
+                                <!--<a href="movie_details.php?id=">-->
+                                <a href="movie_details.php?id=<?php echo $showing_now['id'];?>&userid=<?php echo $_POST['id'];?>">
+
                                     <article class="img-posters">
                                         <img
                                             src="<?php echo $showing_now['poster'];?>">

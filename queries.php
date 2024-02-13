@@ -51,5 +51,13 @@
         CloseCon($conn);
         return $result;
     }
+    function Savedata($show_id,$user1_id,$seatIdsString){
 
+        $conn = OpenCon();
+        $sql="INSERT INTO  booking (show_id	,user_id,seat_id) VALUES ('$show_id','$user1_id','$seatIdsString')";
+        $result = $conn->query($sql);
+        CloseCon($conn);
+        return $result;
+    
+     }
   ?>

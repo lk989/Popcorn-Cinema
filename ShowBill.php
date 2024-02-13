@@ -28,15 +28,6 @@
             $seatCount = count($seatIdsArray); // Count the number of elements in the array
             $seatIdsString = implode(', ', $seatIdsArray);
         }
-        function Savedata($show_id,$user1_id,$seatIdsString){
-
-            $conn = OpenCon();
-            $sql="INSERT INTO  booking (show_id	,user_id,seat_id) VALUES ('$show_id','$user1_id','$seatIdsString')";
-            $result = $conn->query($sql);
-            CloseCon($conn);
-            return $result;
-        
-         }
     ?>
     ?>
     
@@ -127,7 +118,7 @@
                     <?php
 if (isset($_GET['id'])) {
     $show_id = $_GET['id'];
-    $result = Savedata($show_id, 10,"$seatIdsString");
+    $result = Savedata($show_id, $_GET['userid'],"$seatIdsString");
     $message = $result ? "Your booking was successful" : "Try again";
 } else {
     $message = "No show ID provided";
