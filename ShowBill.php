@@ -27,9 +27,17 @@
             $seatIdsArray = explode(',', $seatIdsParam);
             $seatCount = count($seatIdsArray); // Count the number of elements in the array
             $seatIdsString = implode(', ', $seatIdsArray);
-
-          
         }
+        function Savedata($show_id,$user1_id,$seatIdsString){
+
+            $conn = OpenCon();
+            $sql="INSERT INTO  booking (show_id	,user_id,seat_id) VALUES ('$show_id','$user1_id','$seatIdsString')";
+            $result = $conn->query($sql);
+            CloseCon($conn);
+            return $result;
+        
+         }
+    ?>
     ?>
     
  <?php
@@ -56,6 +64,13 @@
     top: 90%; /* Position the top edge slightly below the vertical center */
     left: 50%; /* Position the left edge at the horizontal center */
     transform: translate(-30%, -50%); /* Translate the image back by half of its own width and height */
+}
+
+.button {
+  position: absolute; /* Set button position to absolute */
+  bottom: 20px; /* Adjust vertical position from bottom */
+  right: 20px; /* Adjust horizontal position from right */
+  transform: translate(-70%, -50%);
 }
 
 
@@ -108,6 +123,24 @@
 
                    
                     </table>
+
+                    <?php
+if (isset($_GET['id'])) {
+    $show_id = $_GET['id'];
+    $result = Savedata($show_id, 10,"$seatIdsString");
+    $message = $result ? "Your booking was successful" : "Try again";
+} else {
+    $message = "No show ID provided";
+}
+?>
+
+<a href="index.php?message=<?php echo urlencode($message); ?>" class="book-now" role="button">book now!</a>
+
+
+
+
+
+
         </div>
       <!-- </div> -->
     
@@ -116,6 +149,8 @@
 </div>  
 
 </div>
+
+
 
 </body> 
 
