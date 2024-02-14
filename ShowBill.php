@@ -11,9 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="ticket.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="ticket.css">
-
-   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
 
@@ -24,6 +21,10 @@
 
 .book-now {
   background-color: var(--purple);
+  font-family: "Staatliches", cursive;
+  font-size: 14px;
+
+
   border: 0;
   border-radius: 100px;
   color: white;
@@ -66,8 +67,9 @@ if (isset($_GET['id'])) {
     // Convert each seat ID to an integer
     foreach ($seatIdsArray as &$seatId) {
         $seatId = (int)$seatId;
-    }
-}
+}}
+$currentDay = date("l"); 
+$formatted_date = date('jS M', strtotime($_GET['date']));
 ?>
 
 <?php
@@ -88,9 +90,11 @@ include('header.php');
         </div>
         <div class="ticket-info">
             <p class="date">
-                <span>TUESDAY</span>
-                <span class="june-29">JUNE 29TH</span>
-                <span>2021</span>
+
+                <span> <?php echo $currentDay;?></span>
+                <span class="june-29"><?php 
+                    echo $formatted_date;?></span>
+                <span>2024</span>
             </p>
             <div class="show-name">
                 <h1><?php echo $current_movie['name']; ?></h1>
