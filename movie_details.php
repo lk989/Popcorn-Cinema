@@ -21,7 +21,7 @@
         include 'queries.php';
         if (isset($_GET['id'])) {
             $current_movie_id = $_GET['id'];
-            $user_id=$_GET['userid'];
+            $user_id = $_GET['userid'] ?? null;
             $query = fetch_all('movie', true, 'id = ' . $current_movie_id, '1');
             $current_movie = $query->fetch_assoc();
             // $query_shows = fetch_all('movie', true, 'id = ' . $current_movie_id, '1');
@@ -83,7 +83,8 @@
                         ?>
                                 <td class="<?php if ($num_shows == 0) echo 'disabled-container' ?>">
                                 
-                                    <a href="seats.php?date=<?php echo $date ?>&id=<?php echo $current_movie_id ?>&userid=<?php echo $user_id;?>" class="<?php if ($num_shows == 0) echo 'disabled-link' ?>"><?php echo $date ?></a><br>
+
+                                <a href="seats.php?date=<?php echo $date ?>&id=<?php echo $current_movie_id ?><?php echo !empty($user_id) ? '&userid=' . $user_id : ''; ?>" class="<?php if ($num_shows == 0) echo 'disabled-link' ?>"><?php echo $date ?></a><br>
 
                                 </td>
                         <?php

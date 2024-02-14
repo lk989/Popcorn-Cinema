@@ -150,7 +150,8 @@
         var currentDate = new URLSearchParams(window.location.search).get('date');
         var currentMovieId = new URLSearchParams(window.location.search).get('id');
         var selectedTime = document.getElementById('time').value;
-        var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + '&time=' + encodeURIComponent(selectedTime) + '&price=' + totalSpan.textContent;
+        var userid= new URLSearchParams(window.location.search).get('userid');
+        var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + '&time=' + encodeURIComponent(selectedTime) + '&price=' + totalSpan.textContent + '&userid=' + userid;
         window.location.href = url;
         updateCounterAndTotal();
         selectedSeats = [];

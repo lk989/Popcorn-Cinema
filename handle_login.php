@@ -26,10 +26,10 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $username && password_verify($pass, $row['pwd'])) {
+            if ($row['username'] === $username && $row['pwd']===$pass) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['id'] = $row['id'];
-				header("Location: index.php?id=" . $_SESSION['id']);
+				header("Location: index.php?userid=" . $_SESSION['id']);
 		        exit();
             }else{
 				header("Location: login.php?error=Incorect User name or password");

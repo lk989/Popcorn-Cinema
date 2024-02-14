@@ -19,17 +19,27 @@
         include 'queries.php';
         if (isset($_GET['id'])) {
             $movie_id = $_GET['id'];
+            $user_id = $_GET['userid'] ?? null;
             $query = fetch_all('movie', true, 'id = ' . $movie_id, '1');
             $current_movie = $query->fetch_assoc();
             date_default_timezone_set('Asia/Riyadh'); // Set timezone to Middle East (Riyadh)
             $current_time = date("h:i A"); // Current time in "hour:minute AM/PM" format in Middle East timezone
             $seatIdsParam = $_GET['seat_ids'];
+            // Explode the string into an array of seat IDs
             $seatIdsArray = explode(',', $seatIdsParam);
             $seatCount = count($seatIdsArray); // Count the number of elements in the array
             $seatIdsString = implode(', ', $seatIdsArray);
-        }
+
+// Convert each seat ID to an integer
+foreach ($seatIdsArray as &$seatId) {
+    $seatId = (int)$seatId;
+}
+
+}
+
+         
     ?>
-    ?>
+    
     
  <?php
       include('header.php');
@@ -116,16 +126,38 @@
                     </table>
 
                     <?php
-if (isset($_GET['id'])) {
-    $show_id = $_GET['id'];
-    $result = Savedata($show_id, $_GET['userid'],"$seatIdsString");
-    $message = $result ? "Your booking was successful" : "Try again";
+if ($_GET['userid'] == null) {
+    $message = "Please log in to book.";
 } else {
-    $message = "No show ID provided";
+    $show_id = $_GET['id'];
+    $user_id = $_GET['userid'];
+    $success = true; // Flag to track if any insertion fails
+    
+    foreach ($seatIdsArray as $seat_id) {
+        // Insert each record with its respective seat ID
+        $result = Savedata($show_id, $user_id, $seat_id);
+        
+        // Check if any insertion failed
+        if (!$result) {
+            $success = false;
+            break; // No need to continue loop if any insertion fails
+        }
+    }
+    
+    // Set message based on success flag
+    $message = $success ? "Your booking was successful" : "Try again";
 }
+
 ?>
 
-<a href="index.php?message=<?php echo urlencode($message); ?>" class="book-now" role="button">book now!</a>
+<a href="index.php?userid=<?php echo isset($_GET['userid']) ? $_GET['userid'] : ''; ?>" class="book-now" role="button" onclick="showPopup('<?php echo $message; ?>')">book now!</a>
+
+<script>
+function showPopup(message) {
+    alert(message);
+}
+</script>
+
 
 
 
