@@ -51,7 +51,7 @@
             <div>Available</div>
         </div>
         <div class="seat-description-container">
-            <div class="seat selected"></div>
+            <div class="seat" style="background-color: #DFB055;"></div>
             <div>Selected</div>
         </div>
         <div class="seat-description-container">
@@ -63,7 +63,7 @@
     <?php
         while($seat = $seats->fetch_assoc()){
         ?>
-            <div id="<?php echo $shows['label']?>" class="seat-grid-item seat" onclick="selectSeat(this)"></div>
+            <div id="<?php echo $seat['label']?>" class="seat-grid-item seat" onclick="selectSeat(this)"></div>
         <?php
             }
         ?>
@@ -72,17 +72,68 @@
     You have selected <span id="count">0</span> seat for a price of RS.<span id="total">0</span>
   </p>
   <br>
-  <button class="book-seat" role="button" id="book" onclick="bookingSeat()">book!</button>
+  <div class="booking-btn">
+      <button class="book-seat" role="button" id="book" onclick="bookingSeat()">book!</button>
+  </div>
 </div>
 
-<script>
-    function selectSeat(element){
-        element.classList.toggle('selected');
-    }
-    var selectedSeats = [];
-    var countSpan = document.getElementById('count');
-    var totalSpan = document.getElementById('total');
-</script>
+    <script>
+        var selectedSeats = [];
+        var countSpan = document.getElementById('count');
+        var totalSpan = document.getElementById('total');
+        function selectSeat(element){
+            element.classList.toggle('selected');
+            updateCounterAndTotal();
+        }
+
+        function updateCounterAndTotal() {
+            var count = document.getElementsByClassName('selected').length;
+            console.log(count)
+            var total = count * new URLSearchParams(window.location.search).get('price');
+            countSpan.textContent = count;
+            totalSpan.textContent = total;
+        }
+
+        function bookingSeat() {
+            let selected = Array.from(document.querySelectorAll('.selected'));
+            let selectedSeats = selected.map(function(seat) {
+                return seat.id;
+            });
+            if (selectedSeats.length > 0) {
+                var currentDate = new URLSearchParams(window.location.search).get('date');
+                var currentMovieId = new URLSearchParams(window.location.search).get('id');
+                var selectedTime = document.getElementById('time').value;
+                var userid= new URLSearchParams(window.location.search).get('userid');
+                var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + '&time=' + encodeURIComponent(selectedTime) + '&price=' + totalSpan.textContent + '&userid=' + userid;
+                window.location.href = url;
+                updateCounterAndTotal();
+                selectedSeats = [];
+            } else {
+                alert('Please select at least one seat.');
+            }
+        }
+
+        function clearSelectedSeats() {
+            selectedSeats = [];
+            updateCounterAndTotal();
+        }
+
+        // Run clearSelectedSeats() when the page loads
+        document.addEventListener('DOMContentLoaded', clearSelectedSeats);
+
+        // Check if sessionStorage has selected seats on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (sessionStorage.getItem('selectedSeats')) {
+            selectedSeats = JSON.parse(sessionStorage.getItem('selectedSeats'));
+            updateCounterAndTotal();
+            }
+        });
+
+        // Save selected seats to sessionStorage before page reload
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('selectedSeats', JSON.stringify(selectedSeats));
+        });
+    </script>
 </body>
 
 </html>

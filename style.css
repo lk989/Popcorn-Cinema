@@ -639,7 +639,7 @@ caption{
     margin-bottom: 30px;
   }
   
-  .seat {
+  /* .seat {
     background-color:#c0c0c0;
     height: 30px;
     width: 36px;
@@ -675,7 +675,7 @@ caption{
   .showcase .seat:not(.sold):hover {
     cursor: default;
     transform: scale(1);
-  }
+  } */
   
    .showTime table{
     border: 1px solid ;
@@ -734,6 +734,10 @@ caption{
     line-height: 35px;
     width: 200px;
     margin-bottom: 20px
+  }
+  .booking-btn{
+    display: flex;
+    justify-content: center;
   }
   
   .book-seat:hover { 
@@ -1061,7 +1065,7 @@ caption{
       margin-top: 20px;
     }
 
-    /* .seat{
+    .seat{
       height: 30px;
       width: 36px;
       background-color: var(--light-gray);
@@ -1101,4 +1105,5 @@ caption{
   .booking-price{
     margin: 0 auto;
     width: 100vw;
-  } */
+    text-align: center;
+  }
