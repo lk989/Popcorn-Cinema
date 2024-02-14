@@ -606,7 +606,7 @@ caption{
 
   /* seats page */
 
-  /* .seats {
+  .seats {
     color: #000000;
     display: flex;
     flex-direction: column;
@@ -615,7 +615,7 @@ caption{
     height: 120vh;
     font-family: inherit;
     margin: 0;
-  } */
+  }
 
 
   .movie-container {
@@ -639,7 +639,7 @@ caption{
     margin-bottom: 30px;
   }
   
-  /* .seat {
+  .seat {
     background-color:#c0c0c0;
     height: 30px;
     width: 36px;
@@ -647,9 +647,9 @@ caption{
     font-size: 50px;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
-  } */
+  }
   
-  /* .seat.selected {
+  .seat.selected {
     background-color: #DFB055;
   }
   
@@ -668,14 +668,14 @@ caption{
   .seat:not(.sold):hover {
     cursor: pointer;
     transform: scale(1.2);
-  } */
+  }
   
   
   
-  /* .showcase .seat:not(.sold):hover {
+  .showcase .seat:not(.sold):hover {
     cursor: default;
     transform: scale(1);
-  } */
+  }
   
    .showTime table{
     border: 1px solid ;
@@ -1061,7 +1061,7 @@ caption{
       margin-top: 20px;
     }
 
-    .seat{
+    /* .seat{
       height: 30px;
       width: 36px;
       background-color: var(--light-gray);
@@ -1101,4 +1101,4 @@ caption{
   .booking-price{
     margin: 0 auto;
     width: 100vw;
-  }
+  } */
