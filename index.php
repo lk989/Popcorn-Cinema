@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    
     <?php
         include 'queries.php';
         $movies = fetch_all('movie');
@@ -30,6 +31,7 @@
     <?php if (isset($_GET['success'])) { ?>
         <p class="success"><?php echo $_GET['success']; ?></p>
     <?php } ?>
+
     <div class="background">
         <div class="big-poster-container">
             <img src="<?php echo $movie['poster'];?>" alt="" class="big-poster">
@@ -65,12 +67,25 @@
         <section class="posters">
             <table id="showingNow" class="open">
                 <tr>
+
+                <?php
+                
+                
+                if (isset($_GET['userid'])) {
+                    $userid = '&userid=' . $_GET['userid'];
+                } else {
+                    $userid= ''; // If the user is not logged in, don't include the userid parameter
+                }
+                ?>
                     <?php 
                         while($showing_now=$latest_showing_now->fetch_assoc())
                         {
                     ?>
                             <td>
-                                <a href="movie_details.php?id=<?php echo $showing_now['id'];?>">
+                            
+                                <!--<a href="movie_details.php?id=">-->
+                                <a href="movie_details.php?id=<?php echo $showing_now['id']; ?><?php echo !empty($userid) ? '&userid=' . $userid : ''; ?>">
+
                                     <article class="img-posters">
                                         <img
                                             src="<?php echo $showing_now['poster'];?>">

@@ -38,7 +38,7 @@
             'cost'=> 12
         ];
         $hashedPwd= password_hash($password,PASSWORD_BCRYPT,$options);
-        $sql="INSERT INTO user (username, pwd, email, phone, birthdate) VALUES ('$username', '$hashedPwd', '$email', '$phone', '$birthdate')";
+        $sql="INSERT INTO user (username, pwd, email, phone, birthdate) VALUES ('$username', '$password', '$email', '$phone', '$birthdate')";
         $result = $conn->query($sql);
         CloseCon($conn);
         return $result;
@@ -51,4 +51,11 @@
         CloseCon($conn);
         return $result;
     }
-?>
+    function Savedata($show_id, $user_id, $seatIdsString) {
+        $conn = OpenCon();
+        $sql = "INSERT INTO booking (user_id, seat_id, show_id) VALUES ('$user_id', '$seatIdsString', '$show_id')";
+        $result = $conn->query($sql);
+        CloseCon($conn);
+        return $result;
+    }
+  ?>

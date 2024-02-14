@@ -22,10 +22,7 @@
     <?php
       include('header.php');
     ?>
-    <!--/////////////////////////////////////////////// --->
-
-    <!-- <img src="cinema.jpg" width="100%" height="100%" /> -->
-
+   
     <?php if (isset($_GET['error'])) { ?>
    		<p class="error"><?php echo $_GET['error']; ?></p>
     <?php } ?>
