@@ -1,5 +1,14 @@
 <?php 
 session_start(); 
+
+session_set_cookie_params([
+    'lifetime' => 1800,
+    'domain' => 'localhost',
+    'path' => '/',
+    'secure' => true,
+    'httponly' => true
+]);
+
 include "queries.php";
 
 if (isset($_POST['username']) && isset($_POST['pwd'])) {
@@ -29,6 +38,7 @@ if (isset($_POST['username']) && isset($_POST['pwd'])) {
             if ($row['username'] === $username && $row['pwd']===$pass) {
             	$_SESSION['username'] = $row['username'];
             	$_SESSION['id'] = $row['id'];
+				setcookie('username', $row['username'], time() + 1800, '/', 'localhost', true, true);
 				header("Location: index.php?userid=" . $_SESSION['id']);
 		        exit();
             }else{

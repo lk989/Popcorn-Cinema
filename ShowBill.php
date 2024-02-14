@@ -66,6 +66,8 @@ if (isset($_GET['id'])) {
 }}
 $currentDay = date("l"); 
 $formatted_date = date('jS M', strtotime($_GET['date']));
+setcookie('showid',$movie_id , time() + 1800, '/', 'localhost', true, true);
+
 ?>
 
 <?php
