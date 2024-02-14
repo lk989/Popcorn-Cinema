@@ -16,16 +16,13 @@
 
 .book-now-container {
   justify-content: center;
-  margin-top: 100px; /* Adjust as needed */
+  margin: 100px auto;
 }
 
-.book-now {
+.book-now-ticket {
   background-color: var(--purple);
   font-family: "Staatliches", cursive;
   font-size: 14px;
-  transform: translate(100%, 20px); /* Moves the element 50px to the right and 20px down */
-
-
   border: 0;
   border-radius: 100px;
   color: white;
@@ -34,7 +31,7 @@
   font-size: 1.8rem;
   line-height: 35px;
   text-align: center; /* Center text horizontally */
-  width: 200px;
+  padding: 5px 15px;
 }
 
 .book-now:hover { 
@@ -53,7 +50,6 @@
 include 'queries.php';
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
-    $user_id = $_GET['userid'] ?? null;
     $query = fetch_all('movie', true, 'id = ' . $movie_id, '1');
     $current_movie = $query->fetch_assoc();
     date_default_timezone_set('Asia/Riyadh'); // Set timezone to Middle East (Riyadh)
@@ -101,7 +97,7 @@ include('header.php');
                 <h2><?php echo $current_movie['language']; ?></h2>
             </div>
             <div class="time">
-                <p><?php echo $_GET['time']; ?></p>
+                <p>8:00 PM</p>
             </div>
             <p class="location">
                 <span><?php echo $seatIdsString; ?></span>
@@ -121,7 +117,7 @@ include('header.php');
                 <h1><?php echo $current_movie['name']; ?></h1>
             </div>
             <div class="time">
-                <p><?php echo $_GET['time']; ?></p>
+                <p>8:00 PM</p>
             </div>
             <div class="barcode">
                 <img src="https://external-preview.redd.it/cg8k976AV52mDvDb5jDVJABPrSZ3tpi1aXhPjgcDTbw.png?auto=webp&s=1c205ba303c1fa0370b813ea83b9e1bddb7215eb" alt="QR code">
@@ -136,7 +132,7 @@ include('header.php');
 if ($_GET['userid'] == null) {
     $message = "Please log in to book.";
 } else {
-    $show_id = $_GET['id'];
+    $show_id = $_GET['show_id'];
     $user_id = $_GET['userid'];
     $success = true; // Flag to track if any insertion fails
     
@@ -157,7 +153,7 @@ if ($_GET['userid'] == null) {
 
 ?>
 <div class="book-now-container">
-<a href="index.php?userid=<?php echo isset($_GET['userid']) ? $_GET['userid'] : ''; ?>" class="book-now" role="button" onclick="showPopup('<?php echo $message; ?>')"> Book now!</a>
+<a href="index.php?userid=<?php echo isset($_GET['userid']) ? $_GET['userid'] : ''; ?>" class="book-now-ticket" role="button" onclick="showPopup('<?php echo $message; ?>')"> Book now!</a>
 </div>
 <script>
 function showPopup(message) {

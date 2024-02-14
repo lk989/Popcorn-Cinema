@@ -21,7 +21,6 @@
         include 'queries.php';
         if (isset($_GET['id'])) {
             $current_movie_id = $_GET['id'];
-            $user_id = $_GET['userid'] ?? null;
             $query = fetch_all('movie', true, 'id = ' . $current_movie_id, '1');
             $current_movie = $query->fetch_assoc();
             // $query_shows = fetch_all('movie', true, 'id = ' . $current_movie_id, '1');
@@ -74,17 +73,16 @@
                             for ($i = 0; $i < 7; $i++) {
                                 $date = date('Y-m-d', strtotime("$start_of_week +$i days"));
 
-                                $query_shows = fetch("SELECT COUNT(*) AS num_shows FROM shows WHERE date = '$date' AND movie_id = $current_movie_id");
-                                $num_shows = 0;
-                                if ($query_shows) {
+                                $query_shows = fetch("SELECT id FROM shows WHERE date = '$date' AND movie_id = $current_movie_id");
+                                $num_shows = mysqli_num_rows($query_shows);
+                                if ($num_shows > 0) {
                                     $row_shows = $query_shows->fetch_assoc();
-                                    $num_shows = $row_shows['num_shows'];
                                 }
                         ?>
                                 <td class="<?php if ($num_shows == 0) echo 'disabled-container' ?>">
                                 
 
-                                <a href="seats.php?date=<?php echo $date ?>&id=<?php echo $current_movie_id ?><?php echo !empty($user_id) ? '&userid=' . $user_id : ''; ?>" class="<?php if ($num_shows == 0) echo 'disabled-link' ?>"><?php echo $date ?></a><br>
+                                <a href="seat.php?show_id=<?php echo $row_shows['id'] ?>&price=<?php echo $current_movie['price'] ?>" class="<?php if ($num_shows == 0) echo 'disabled-link' ?>"><?php echo $date ?></a><br>
 
                                 </td>
                         <?php

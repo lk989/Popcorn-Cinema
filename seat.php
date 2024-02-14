@@ -21,31 +21,21 @@
 <?php
     include('header.php');
     include('queries.php');
-    $date = $_GET['date'];
-    $id = $_GET['id'];
-    $show_query = fetch_all('shows', false, "date = '$date' AND movie_id = '$id'", null);
-    // $booking_query = fetch("SELECT label FROM seats WHERE IN (SELECT seat_id FROM booking WHERE 'date' = '$date' AND 'movie_id' = $id)");
-    // $bookings = mysqli_fetch_array($booking_query);
+    $show_id = $_GET['show_id'];
+    $user_id = $_GET['userid'] ?? null;
+    $show_query = fetch_all('shows', false, "id = '$show_id'", null);
+    $show = $show_query->fetch_assoc();
+    $booking_query = fetch("SELECT `label` 
+    FROM `seat` 
+    WHERE `label` IN (SELECT `seat_id` FROM `booking` WHERE `show_id` = $show_id)");
+    $booking_seats = [];
+    while($booking = $booking_query->fetch_assoc()){
+        array_push($booking_seats, $booking['label']);
+    }
+    // echo $bookings;
     $seats = fetch_all('seat', false, null, null);
 ?>
-<!--
-<div class="time-container">
-    <label for="time" id="selectime"> Select a time:</label>
-    <select id="time" name="show-time">
-        <?php
-        if(mysqli_num_rows($show_query) > 0){
-            while($shows = $show_query->fetch_assoc()){
-        ?>
-                <option value="<?php echo $shows['id']?>"><?php echo $shows['time']?></option>
-                <?php
-            }}else{
-                ?>
-            <option value="0" selected>No available show time</option>
-        <?php
-            }
-        ?>
-    </select>
-</div> -->
+
 <div class="seat-container">
     <div class="seat-description">
         <div class="seat-description-container">
@@ -65,7 +55,8 @@
     <?php
         while($seat = $seats->fetch_assoc()){
         ?>
-            <div id="<?php echo $seat['label']?>" class="seat-grid-item seat" onclick="selectSeat(this)"></div>
+
+            <div id="<?php echo $seat['label']?>" class="seat-grid-item seat <?php echo in_array($seat['label'], $booking_seats) ? 'sold' : ''?>"  <?php echo in_array($seat['label'], $booking_seats) ? '' : "onclick='selectSeat(this)'"?>></div>
         <?php
             }
         ?>
@@ -79,9 +70,6 @@
   </div>
 </div>
 
-<?php
-    // print_r($bookings);
-?>
     <script>
         var selectedSeats = [];
         var countSpan = document.getElementById('count');
@@ -100,19 +88,25 @@
         }
 
         function bookingSeat() {
+            let user_id = <?php echo json_encode($_SESSION['id']); ?>;
             let selected = Array.from(document.querySelectorAll('.selected'));
             let selectedSeats = selected.map(function(seat) {
                 return seat.id;
             });
             if (selectedSeats.length > 0) {
-                var currentDate = new URLSearchParams(window.location.search).get('date');
-                var currentMovieId = new URLSearchParams(window.location.search).get('id');
-                // var selectedTime = document.getElementById('time').value;
-                var userid= new URLSearchParams(window.location.search).get('userid');
-                var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + /* '&time=' + encodeURIComponent(selectedTime) + */'&price=' + totalSpan.textContent + '&userid=' + userid;
-                window.location.href = url;
-                updateCounterAndTotal();
-                selectedSeats = [];
+                if(user_id == '' || user_id == null){
+                    alert('You should sign in first')
+                }
+                else{
+                    var currentDate = <?php echo json_encode($show['date']); ?>;
+                    var currentMovieId = <?php echo json_encode($show['movie_id']); ?>;
+                    var currentShowId = <?php echo json_encode($show['id']); ?>;
+                    // var selectedTime = document.getElementById('time').value;
+                    var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&show_id=' + currentShowId + '&seat_ids=' + selectedSeats.join(',') + /* '&time=' + encodeURIComponent(selectedTime) + */'&price=' + totalSpan.textContent + '&userid=' + user_id;
+                    window.location.href = url;
+                    updateCounterAndTotal();
+                    selectedSeats = [];
+                }
             } else {
                 alert('Please select at least one seat.');
             }

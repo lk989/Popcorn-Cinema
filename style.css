@@ -161,7 +161,6 @@ header{
     text-align: center;
 }
 
-
 .book-now {
   align-items: center;
   font-family: "Staatliches", cursive;
@@ -1073,6 +1072,10 @@ caption{
     }
     .seat.sold{
       background-color: var(--purple);
+      cursor: not-allowed !important;
+    }
+    .seat.sold:hover{
+      cursor: not-allowed !important;
     }
     .seat.selected{
       background-color: var(--yellow);
