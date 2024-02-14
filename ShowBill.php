@@ -49,6 +49,13 @@
 
 <?php
 include 'queries.php';
+if(isset($_COOKIE['show_id'])){
+    $show_id = $_COOKIE['show_id'];
+}
+else{
+		header("Location: index.php?error=Your booking session was expired");
+        exit();
+}
 if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
     $query = fetch_all('movie', true, 'id = ' . $movie_id, '1');
@@ -67,8 +74,6 @@ if (isset($_GET['id'])) {
 }}
 $currentDay = date("l"); 
 $formatted_date = date('jS M', strtotime($_GET['date']));
-setcookie('showid',$movie_id , time() + 1800, '/', 'localhost', true, true);
-
 ?>
 
 <?php

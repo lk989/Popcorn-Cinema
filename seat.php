@@ -23,6 +23,7 @@
     include('queries.php');
     $show_id = $_GET['show_id'];
     $user_id = $_GET['userid'] ?? null;
+    setcookie('showid',$show_id , time() + 1800, '/', 'localhost', true, true);
     $show_query = fetch_all('shows', false, "id = '$show_id'", null);
     $show = $show_query->fetch_assoc();
     $booking_query = fetch("SELECT `label` 
@@ -102,7 +103,7 @@
                     var currentMovieId = <?php echo json_encode($show['movie_id']); ?>;
                     var currentShowId = <?php echo json_encode($show['id']); ?>;
                     // var selectedTime = document.getElementById('time').value;
-                    var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&show_id=' + currentShowId + '&seat_ids=' + selectedSeats.join(',') + /* '&time=' + encodeURIComponent(selectedTime) + */'&price=' + totalSpan.textContent + '&userid=' + user_id;
+                    var url = 'ShowBill.php?date=' + currentDate + '&id=' + currentMovieId + '&seat_ids=' + selectedSeats.join(',') + /* '&time=' + encodeURIComponent(selectedTime) + */'&price=' + totalSpan.textContent + '&userid=' + user_id;
                     window.location.href = url;
                     updateCounterAndTotal();
                     selectedSeats = [];

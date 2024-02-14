@@ -1051,6 +1051,14 @@ caption{
       margin: 0px 0px !important;
       font-size: 24px;
     }
+    .error {
+      background: #F2DEDE;
+      color: #A94442;
+      padding: 10px;
+      width: 95%;
+      border-radius: 5px;
+      margin: 20px auto;
+    }
 
     .time-container{
       display: flex;
