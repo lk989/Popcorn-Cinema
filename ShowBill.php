@@ -16,7 +16,8 @@
 
 .book-now-container {
   justify-content: center;
-  margin: 100px auto;
+  margin: 100px auto -20px auto; /* Top, Right, Bottom, Left */
+
 }
 
 .book-now-ticket {
@@ -74,7 +75,7 @@ setcookie('showid',$movie_id , time() + 1800, '/', 'localhost', true, true);
 include('header.php');
 ?>
 
-<div class="ticket created-by-anniedotexe">
+<div class="ticket">
     <div class="left">
         <div class="image">
             <p class="admit-one">
