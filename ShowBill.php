@@ -16,13 +16,14 @@
 
 .book-now-container {
   justify-content: center;
-  margin-top: 80px; /* Adjust as needed */
+  margin-top: 100px; /* Adjust as needed */
 }
 
 .book-now {
   background-color: var(--purple);
   font-family: "Staatliches", cursive;
   font-size: 14px;
+  transform: translate(100%, 20px); /* Moves the element 50px to the right and 20px down */
 
 
   border: 0;
@@ -34,7 +35,6 @@
   line-height: 35px;
   text-align: center; /* Center text horizontally */
   width: 200px;
-  transition: transform 0.2s;
 }
 
 .book-now:hover { 
