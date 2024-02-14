@@ -23,7 +23,7 @@
     include('queries.php');
     $show_id = $_GET['show_id'];
     $user_id = $_GET['userid'] ?? null;
-    setcookie('showid',$show_id , time() + 1800, '/', 'localhost', true, true);
+    setcookie('show_id',$show_id , time() + 1800, '/', 'localhost', true, true);
     $show_query = fetch_all('shows', false, "id = '$show_id'", null);
     $show = $show_query->fetch_assoc();
     $booking_query = fetch("SELECT `label` 

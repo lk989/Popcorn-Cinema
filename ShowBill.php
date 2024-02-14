@@ -140,7 +140,7 @@ include('header.php');
 if ($_GET['userid'] == null) {
     $message = "Please log in to book.";
 } else {
-    $show_id = $_GET['show_id'];
+    // $show_id = $_GET['show_id'];
     $user_id = $_GET['userid'];
     $success = true; // Flag to track if any insertion fails
     
